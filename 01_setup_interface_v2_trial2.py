@@ -1,5 +1,5 @@
-# Trial 1: Creating Centre Title Label + Instructions on the left
-# + easy, hard buttons using pack
+# Trial 2: Creating Centre Title Label + Instructions on the left
+# + easy, hard buttons using grid
 
 from tkinter import *
 
