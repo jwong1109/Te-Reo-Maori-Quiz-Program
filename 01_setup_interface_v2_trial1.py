@@ -11,7 +11,7 @@ root.configure(bg="#FF7200")
 
 # Comic Book Store Label
 title_label = Label(root, bg="red", fg="black", text="Te Reo Maori Months "
-                                                      "Quiz",
+                                                     "Quiz",
                     font=("Arial", 30, "bold"))
 title_label.pack()
 
