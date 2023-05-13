@@ -1,6 +1,6 @@
-# Use labels on the right side of the interface to represent the positions
-# of question, multiple choices, submit button, and feedback.
+# Added 01_setup_interface_v4.py
 
+# Import Statements
 from tkinter import *
 
 # Root Window
@@ -9,6 +9,31 @@ root.title("Te Reo Maori Months Quiz")
 root.geometry("600x700")
 root.configure(bg="#FF7200")
 
+# Questions Class
+
+# Functions go here
+
+# Random month generator function
+
+# Easy ask function
+
+# Hard ask function
+
+# Submit answer function
+
+# Feedback function
+
+# Final score function
+
+# Export record of score, questions, and answers to text file function
+
+# ******** Main Routine ********
+
+# Necessary Lists and Variables
+
+# Add Questions to Class
+
+# Labels
 # Comic Book Store Label
 title_label = Label(root, bg="red", fg="black", text="Te Reo Maori Months "
                                                      "Quiz",
@@ -24,8 +49,7 @@ instructions_label = Label(root, bg="red", fg="black",
                            font=("Arial", 20))
 instructions_label.grid(column=0, row=2, columnspan=2, rowspan=2, ipady=5)
 
-# Easy and Hard Buttons
-
+# Easy and Hard Button
 easy_button = Label(root, bg="red", fg="white", text="EASY",
                     font=("Arial", 20))
 easy_button.grid(column=0, row=4, sticky=N, ipadx=10, ipady=10, padx=5)
@@ -77,13 +101,16 @@ choice4 = Label(root, bg="red", fg="white", text="Hakihea",
                 font=("Arial", 17))
 choice4.grid(column=4, row=3, ipadx=10, sticky=W, ipady=30)
 
-# Feedback and Submit Button
+# Feedback
 feedback = Label(root, bg="#FF7200", fg="light green", text="Correct!",
                  font=("Arial", 20))
 feedback.grid(column=3, row=5, sticky=NW)
 
+# Submit answer button
 submit_button = Label(root, bg="blue", fg="white", text="Submit",
                       font=("Arial", 20))
 submit_button.grid(column=4, row=5, sticky=NW, ipadx=5)
+
+# Finish Quiz
 
 root.mainloop()
