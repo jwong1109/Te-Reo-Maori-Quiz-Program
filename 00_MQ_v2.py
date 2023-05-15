@@ -49,7 +49,7 @@ instructions_label = Label(root, bg="red", fg="black",
                            font=("Arial", 20))
 instructions_label.grid(column=0, row=2, columnspan=2, rowspan=2, ipady=5)
 
-# Easy and Hard Button
+# Easy and Hard Button - temporarily as a label for structuring purposes
 easy_button = Label(root, bg="red", fg="white", text="EASY",
                     font=("Arial", 20))
 easy_button.grid(column=0, row=4, sticky=N, ipadx=10, ipady=10, padx=5)
@@ -84,7 +84,7 @@ question_label = Label(root, bg="#FF7200", fg="black",
 question_label.grid(column=3, row=1, columnspan=3,
                     pady=20)
 
-# Multiple Choice Buttons
+# Multiple Choice Buttons - temporarily as a label for structuring purposes
 choice1 = Label(root, bg="black", fg="white", text="Hōngongoi",
                 font=("Arial", 17))
 choice1.grid(column=3, row=2, ipadx=10, sticky=W, ipady=30)
@@ -106,7 +106,7 @@ feedback = Label(root, bg="#FF7200", fg="light green", text="Correct!",
                  font=("Arial", 20))
 feedback.grid(column=3, row=5, sticky=NW)
 
-# Submit answer button
+# Submit answer button - temporarily as a label for structuring purposes
 submit_button = Label(root, bg="blue", fg="white", text="Submit",
                       font=("Arial", 20))
 submit_button.grid(column=4, row=5, sticky=NW, ipadx=5)
