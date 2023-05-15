@@ -130,7 +130,7 @@ white_line.grid(column=2, row=1, rowspan=5, sticky=NW, ipady=225, pady=30,
                 padx=5)
 
 
-# Multiple Choice Buttons
+# Multiple Choice Buttons - temporarily as a label for structuring purposes
 choice1 = Label(root, bg="black", fg="white", text="Hōngongoi",
                 font=("Arial", 17))
 choice1.grid(column=3, row=2, ipadx=10, sticky=W, ipady=30)
@@ -152,7 +152,7 @@ feedback = Label(root, bg="#FF7200", fg="light green", text="Correct!",
                  font=("Arial", 20))
 feedback.grid(column=3, row=5, sticky=NW)
 
-# Submit answer button
+# Submit answer button - temporarily as a label for structuring purposes
 submit_button = Label(root, bg="blue", fg="white", text="Submit",
                       font=("Arial", 20))
 submit_button.grid(column=4, row=5, sticky=NW, ipadx=5)
