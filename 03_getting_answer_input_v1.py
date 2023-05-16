@@ -33,11 +33,8 @@ def random_question_generator(difficulty):  # from 02_setup_questions_v4.py
             current_question.append(month.eng_month)
             current_question.append(month.maori_month)
             current_question.append(month.numeric_month)
-            print("ENG MONTH CHOICES")
-            print(eng_month_choices)
             eng_month_choices.remove(random_month)
             maori_month_choices.remove(month.maori_month)
-            # questions.remove(month)
 
     if difficulty == "Easy":
         random_option_1 = random.choice(eng_month_choices)
