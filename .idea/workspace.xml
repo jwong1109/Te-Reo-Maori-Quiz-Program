@@ -41,8 +41,8 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.03_getting_answer_input_v3_trial2">
-    <configuration name="03_getting_answer_input_v1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.00_MQ_v4">
+    <configuration name="00_MQ_v4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Te Reo Maori Quiz Program" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -54,7 +54,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/03_getting_answer_input_v1.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/00_MQ_v4.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -149,11 +149,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.00_MQ_v4" />
         <item itemvalue="Python.03_getting_answer_input_v3_trial2" />
         <item itemvalue="Python.03_getting_answer_input_v3_trial1" />
         <item itemvalue="Python.03_getting_answer_input_v2_trial2" />
         <item itemvalue="Python.03_getting_answer_input_v2_trial1" />
-        <item itemvalue="Python.03_getting_answer_input_v1" />
       </list>
     </recent_temporary>
   </component>
