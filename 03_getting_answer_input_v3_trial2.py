@@ -94,9 +94,10 @@ def hard_ask():
 
 # Get answer input - the multiple choices temporarily as labels
 def get_answer(difficulty, correct, random1, random2, random3):
-    correct_month = correct[0]
 
     if difficulty == "Easy":
+        correct_month = correct[0]
+        print(correct_month)  # For testing purposes
         place_correct_month = random.randint(1, 4)
         correct_choice = Label(root, bg="black", fg="white",
                                text=correct_month,
@@ -141,12 +142,14 @@ def get_answer(difficulty, correct, random1, random2, random3):
             incorrect_choice_3.grid(column=3, row=3, ipadx=10, sticky=W,
                                     ipady=30)
     else:
+        correct_month = correct[1]
         clicked = StringVar()
         clicked.set("Select Maori Month...")
         months_options = months_dropdown()
         select_dropdown = OptionMenu(root, clicked, *months_options)
         select_dropdown.config(bg="red")
         select_dropdown.grid(column=4, row=2, ipadx=10, sticky=W, ipady=10)
+        print(correct_month)  # For testing purposes
 
 
 questions = []
