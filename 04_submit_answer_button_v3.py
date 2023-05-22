@@ -1,10 +1,6 @@
-# Continue with submitting answer for easy questions first
-
-# Developed the command in the multiple choices and the Submit Button and Test
-# Answer Function
-
-# It should print in python the answer pressed, correct answer, and the mark
-# for easy questions
+# Submitting answer for hard questions. To get answer selected from dropdown
+# and the submit button be able to print in python the answer pressed,
+# correct answer, and the mark for hard questions
 
 from tkinter import *
 import random
@@ -24,6 +20,15 @@ class Questions:  # from 02_setup_questions_v4.py
         questions.append(self)
 
 
+# Add the Maori months to the months dropdown
+def months_dropdown():
+    maori_months_choices = []
+    for month in questions:
+        maori_months_choices.append(month.maori_month)
+    random.shuffle(maori_months_choices)
+    return maori_months_choices
+
+
 def random_question_generator(difficulty):  # from
     # 03_getting_answer_input_v3_trial2.py
     current_question = []
@@ -41,13 +46,20 @@ def random_question_generator(difficulty):  # from
             eng_month_choices.remove(random_month)
             maori_month_choices.remove(month.maori_month)
 
-    # Easy Level
-    random_option_1 = random.choice(eng_month_choices)
-    eng_month_choices.remove(random_option_1)
-    random_option_2 = random.choice(eng_month_choices)
-    eng_month_choices.remove(random_option_2)
-    random_option_3 = random.choice(eng_month_choices)
-    eng_month_choices.remove(random_option_3)
+    if difficulty == "Easy":
+        random_option_1 = random.choice(eng_month_choices)
+        eng_month_choices.remove(random_option_1)
+        random_option_2 = random.choice(eng_month_choices)
+        eng_month_choices.remove(random_option_2)
+        random_option_3 = random.choice(eng_month_choices)
+        eng_month_choices.remove(random_option_3)
+    else:
+        random_option_1 = random.choice(maori_month_choices)
+        maori_month_choices.remove(random_option_1)
+        random_option_2 = random.choice(maori_month_choices)
+        maori_month_choices.remove(random_option_2)
+        random_option_3 = random.choice(maori_month_choices)
+        maori_month_choices.remove(random_option_3)
 
     question_details = current_question, \
         random_option_1, random_option_2, random_option_3
@@ -64,6 +76,20 @@ def easy_ask():
     question_label.grid(column=3, row=1, columnspan=3,
                         pady=20)
     get_answer("Easy", ask_details[0], ask_details[1], ask_details[2],
+               ask_details[3])
+
+
+# Hard ask function - from 02_setup_questions_v4.py
+def hard_ask():
+    ask_details = random_question_generator("Hard")
+    ask_question = f"What is the month '{ask_details[0][0]}' \nin Te Reo " \
+                   f"Maori?"
+    question_label = Label(root, bg="#FF7200", fg="black",
+                           text=ask_question,
+                           font=("Arial", 20))
+    question_label.grid(column=3, row=1, columnspan=3,
+                        pady=20)
+    get_answer("Hard", ask_details[0], ask_details[1], ask_details[2],
                ask_details[3])
 
 
@@ -122,6 +148,15 @@ def get_answer(difficulty, correct, random1, random2, random3):
                                     ipady=30)
             incorrect_choice_3.grid(column=3, row=3, ipadx=10, sticky=W,
                                     ipady=30)
+    else:
+        correct_month = correct[1]
+        clicked = StringVar()
+        clicked.set("Select Maori Month...")
+        months_options = months_dropdown()
+        select_dropdown = OptionMenu(root, clicked, *months_options)
+        select_dropdown.config(bg="red")
+        select_dropdown.grid(column=4, row=2, ipadx=10, sticky=W, ipady=10)
+        submit_answer("CHECK", clicked, correct_month)
 
 
 # Submit Button
@@ -134,6 +169,12 @@ def submit_answer(status, answer_pressed, correct):
 
 # Test Answer
 def test_answer(mark, user_answer, correct_answer):
+    if mark == "CHECK":
+        user_answer = user_answer.get()
+    if user_answer == correct_answer:
+        mark = "Correct"
+    else:
+        mark = "Incorrect"
     print(f"ANSWER PRESSED: {user_answer}")
     print(f"CORRECT ANSWER: {correct_answer}")
     print(f"MARK: {mark}!")
@@ -160,5 +201,9 @@ Questions("December", "Hakihea", 12)
 easy_button = Button(root, bg="red", fg="black", text="EASY",
                      font=("Arial", 20), command=easy_ask)
 easy_button.grid(column=0, row=4, sticky=N, ipadx=10, ipady=10, padx=5)
+
+hard_button = Button(root, bg="black", fg="black", text="HARD",
+                     font=("Arial", 20), command=hard_ask)
+hard_button.grid(column=1, row=4, sticky=N, ipadx=10, ipady=10, padx=5)
 
 root.mainloop()
