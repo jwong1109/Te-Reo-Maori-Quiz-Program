@@ -155,7 +155,7 @@ def get_answer(difficulty, correct, random1, random2, random3):
         months_options = months_dropdown()
         select_dropdown = OptionMenu(root, clicked, *months_options)
         select_dropdown.config(bg="red")
-        select_dropdown.grid(column=4, row=2, ipadx=10, sticky=W, ipady=10)
+        select_dropdown.grid(column=3, row=2, ipadx=10, sticky=W, ipady=10)
         submit_answer("CHECK", clicked, correct_month)
 
 
