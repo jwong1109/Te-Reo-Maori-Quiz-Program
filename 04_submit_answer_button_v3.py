@@ -20,7 +20,8 @@ class Questions:  # from 02_setup_questions_v4.py
         questions.append(self)
 
 
-# Add the Maori months to the months dropdown
+# Add the Maori months to the months dropdown - from
+# 03_getting_answer_input_v3_trial2.py
 def months_dropdown():
     maori_months_choices = []
     for month in questions:
@@ -175,6 +176,7 @@ def test_answer(mark, user_answer, correct_answer):
         mark = "Correct"
     else:
         mark = "Incorrect"
+    # for testing purposes
     print(f"ANSWER PRESSED: {user_answer}")
     print(f"CORRECT ANSWER: {correct_answer}")
     print(f"MARK: {mark}!")
@@ -197,7 +199,7 @@ Questions("October", "Whiringa-ā-nuku", 10)
 Questions("November", "Whiringa-ā-rangi", 11)
 Questions("December", "Hakihea", 12)
 
-# Easy Button - from 02_setup_questions_v4.py
+# Easy and Hard Buttons - from 02_setup_questions_v4.py
 easy_button = Button(root, bg="red", fg="black", text="EASY",
                      font=("Arial", 20), command=easy_ask)
 easy_button.grid(column=0, row=4, sticky=N, ipadx=10, ipady=10, padx=5)
