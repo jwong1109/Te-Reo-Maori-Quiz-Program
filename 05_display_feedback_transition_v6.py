@@ -1,5 +1,4 @@
-# Submit Button to disappear immediately once pressed
-# After 5 seconds of feedback disappears
+# Make the questions only appear once
 
 from tkinter import *
 import random
@@ -67,36 +66,35 @@ def random_question_generator(difficulty):  # from
 
 
 # Easy ask function - from 03_getting_answer_input_v3_trial2.py
-def easy_ask():
-    global easy_question_label
+def easy_ask(track_questions):
     ask_details = random_question_generator("Easy")
     ask_question = f"What is the month '{ask_details[0][1]}' \nin English?"
     easy_question_label = Label(root, bg="#FF7200", fg="black",
-                           text=ask_question,
-                           font=("Arial", 20))
+                                text=ask_question,
+                                font=("Arial", 20))
     easy_question_label.grid(column=3, row=1, columnspan=3,
-                        pady=20)
+                             pady=20)
     get_answer("Easy", ask_details[0], ask_details[1], ask_details[2],
-               ask_details[3])
+               ask_details[3], track_questions, easy_question_label)
 
 
 # Hard ask function - from 02_setup_questions_v4.py
-def hard_ask():
-    global hard_question_label
+def hard_ask(track_questions):
     ask_details = random_question_generator("Hard")
     ask_question = f"What is the month '{ask_details[0][0]}' \nin Te Reo " \
                    f"Maori?"
     hard_question_label = Label(root, bg="#FF7200", fg="black",
-                           text=ask_question,
-                           font=("Arial", 20))
+                                text=ask_question,
+                                font=("Arial", 20))
     hard_question_label.grid(column=3, row=1, columnspan=3,
-                        pady=20)
+                             pady=20)
     get_answer("Hard", ask_details[0], ask_details[1], ask_details[2],
-               ask_details[3])
+               ask_details[3], track_questions, hard_question_label)
 
 
 # Get answer input - from 03_getting_answer_input_v3_trial2.py
-def get_answer(difficulty, correct, random1, random2, random3):
+def get_answer(difficulty, correct, random1, random2, random3,
+               questions_track, question_label):
     if difficulty == "Easy":
         correct_month = correct[0]
         place_correct_month = random.randint(1, 4)
@@ -105,22 +103,46 @@ def get_answer(difficulty, correct, random1, random2, random3):
                                 font=("Arial", 17), command=lambda:
                                 submit_answer(difficulty, "Correct",
                                               correct_month,
-                                              correct_month))
+                                              correct_month,
+                                              questions_track,
+                                              [correct_choice,
+                                               incorrect_choice_1,
+                                               incorrect_choice_2,
+                                               incorrect_choice_3],
+                                              question_label))
         incorrect_choice_1 = Button(root, bg="red", fg="black", text=random1,
                                     font=("Arial", 17), command=lambda:
                                     submit_answer(difficulty, "Incorrect",
                                                   random1,
-                                                  correct_month))
+                                                  correct_month,
+                                                  questions_track,
+                                                  [correct_choice,
+                                                   incorrect_choice_1,
+                                                   incorrect_choice_2,
+                                                   incorrect_choice_3],
+                                                  question_label))
         incorrect_choice_2 = Button(root, bg="red", fg="black", text=random2,
                                     font=("Arial", 17), command=lambda:
                                     submit_answer(difficulty, "Incorrect",
                                                   random2,
-                                                  correct_month))
+                                                  correct_month,
+                                                  questions_track,
+                                                  [correct_choice,
+                                                   incorrect_choice_1,
+                                                   incorrect_choice_2,
+                                                   incorrect_choice_3],
+                                                  question_label))
         incorrect_choice_3 = Button(root, bg="red", fg="black", text=random3,
                                     font=("Arial", 17), command=lambda:
                                     submit_answer(difficulty, "Incorrect",
                                                   random3,
-                                                  correct_month))
+                                                  correct_month,
+                                                  questions_track,
+                                                  [correct_choice,
+                                                   incorrect_choice_1,
+                                                   incorrect_choice_2,
+                                                   incorrect_choice_3],
+                                                  question_label))
 
         if place_correct_month == 1:
             correct_choice.grid(column=3, row=2, ipadx=10, sticky=W, ipady=30)
@@ -162,20 +184,24 @@ def get_answer(difficulty, correct, random1, random2, random3):
         select_dropdown = OptionMenu(root, clicked, *months_options)
         select_dropdown.config(bg="red")
         select_dropdown.grid(column=4, row=2, ipadx=10, sticky=W, ipady=10)
-        submit_answer(difficulty, "CHECK", clicked, correct_month)
+        submit_answer(difficulty, "CHECK", clicked, correct_month,
+                      questions_track, select_dropdown, question_label)
 
 
 # Submit Button - from 04_submit_answer_button_v3.py
-def submit_answer(level, status, answer_pressed, correct):
+def submit_answer(level, status, answer_pressed, correct, track,
+                  answer_type, label_question):
     submit_button = Button(root, bg="blue", fg="black", text="Submit",
                            font=("Arial", 20), command=lambda: [test_answer(
-                                 level, status, answer_pressed, correct),
+                                 level, status, answer_pressed, correct,
+                                 track, answer_type, label_question),
                             submit_button.destroy()])
     submit_button.grid(column=4, row=5, sticky=NW, ipadx=5)
 
 
 # Test Answer - from 04_submit_answer_button_v3.py
-def test_answer(quiz_difficulty, mark, user_answer, correct_answer):
+def test_answer(quiz_difficulty, mark, user_answer, correct_answer, track,
+                type_answer, question_quiz):
     if mark == "CHECK":
         user_answer = user_answer.get()
     if user_answer == correct_answer:
@@ -197,10 +223,23 @@ def test_answer(quiz_difficulty, mark, user_answer, correct_answer):
         feedback.grid(column=3, row=5, sticky=NW)
         num_incorrect.set(num_incorrect.get() + 1)
 
+    track += 1
     feedback.after(3000, feedback.destroy)
+    next_question(quiz_difficulty, track, type_answer, question_quiz)
 
-    global num_questions
-    num_questions += 1
+
+def next_question(quiz, questions_track, answer_input, question):
+    if quiz == "Easy":
+        question.destroy()
+        for choice in answer_input:
+            choice.destroy()
+        if questions_track != 12:
+            easy_ask(questions_track)
+    else:
+        question.destroy()
+        answer_input.destroy()
+        if questions_track != 12:
+            hard_ask(questions_track)
 
 
 questions = []
@@ -221,11 +260,13 @@ Questions("December", "Hakihea", 12)
 
 # Easy and Hard Buttons - from 02_setup_questions_v4.py
 easy_button = Button(root, bg="red", fg="black", text="EASY",
-                     font=("Arial", 20), command=easy_ask)
+                     font=("Arial", 20), command=lambda:
+                     easy_ask(num_questions))
 easy_button.grid(column=0, row=4, sticky=N, ipadx=10, ipady=10, padx=5)
 
 hard_button = Button(root, bg="black", fg="black", text="HARD",
-                     font=("Arial", 20), command=hard_ask)
+                     font=("Arial", 20), command=lambda:
+                     hard_ask(num_questions))
 hard_button.grid(column=1, row=4, sticky=N, ipadx=10, ipady=10, padx=5)
 
 # Score Tracker - labels from 01_setup_interface_v4.py

@@ -1,5 +1,8 @@
-# Submit Button to disappear immediately once pressed
-# After 5 seconds of feedback disappears
+# Make the question disappear after 5 seconds of feedback,
+# then next question to appear
+# Set up question loop for 12 questions only.
+# Once finished 12 questions, complete the quiz and
+# call the finish quiz function.
 
 from tkinter import *
 import random
@@ -100,22 +103,26 @@ def get_answer(difficulty, correct, random1, random2, random3):
     if difficulty == "Easy":
         correct_month = correct[0]
         place_correct_month = random.randint(1, 4)
+        global correct_choice
         correct_choice = Button(root, bg="black", fg="black",
                                 text=correct_month,
                                 font=("Arial", 17), command=lambda:
                                 submit_answer(difficulty, "Correct",
                                               correct_month,
                                               correct_month))
+        global incorrect_choice_1
         incorrect_choice_1 = Button(root, bg="red", fg="black", text=random1,
                                     font=("Arial", 17), command=lambda:
                                     submit_answer(difficulty, "Incorrect",
                                                   random1,
                                                   correct_month))
+        global incorrect_choice_2
         incorrect_choice_2 = Button(root, bg="red", fg="black", text=random2,
                                     font=("Arial", 17), command=lambda:
                                     submit_answer(difficulty, "Incorrect",
                                                   random2,
                                                   correct_month))
+        global incorrect_choice_3
         incorrect_choice_3 = Button(root, bg="red", fg="black", text=random3,
                                     font=("Arial", 17), command=lambda:
                                     submit_answer(difficulty, "Incorrect",
@@ -159,6 +166,7 @@ def get_answer(difficulty, correct, random1, random2, random3):
         clicked = StringVar()
         clicked.set("Select Maori Month...")
         months_options = months_dropdown()
+        global select_dropdown
         select_dropdown = OptionMenu(root, clicked, *months_options)
         select_dropdown.config(bg="red")
         select_dropdown.grid(column=4, row=2, ipadx=10, sticky=W, ipady=10)
@@ -197,10 +205,26 @@ def test_answer(quiz_difficulty, mark, user_answer, correct_answer):
         feedback.grid(column=3, row=5, sticky=NW)
         num_incorrect.set(num_incorrect.get() + 1)
 
-    feedback.after(3000, feedback.destroy)
-
     global num_questions
     num_questions += 1
+    feedback.after(3000, feedback.destroy)
+    next_question(quiz_difficulty)
+
+
+def next_question(quiz):
+    if quiz == "Easy":
+        easy_question_label.destroy()
+        correct_choice.destroy()
+        incorrect_choice_1.destroy()
+        incorrect_choice_2.destroy()
+        incorrect_choice_3.destroy()
+        if num_questions != 12:
+            easy_ask()
+    else:
+        hard_question_label.destroy()
+        select_dropdown.destroy()
+        if num_questions != 12:
+            hard_ask()
 
 
 questions = []
