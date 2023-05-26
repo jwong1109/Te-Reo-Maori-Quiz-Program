@@ -1,9 +1,5 @@
-# Based on 05_display_feedback_transition_v6.py
-# Create finish_quiz function to clear the GUI interface except the score
-# trackers
-
-# In the test answer function, created lists to store correct and incorrect
-# answers
+# Export Score, Record of Questions, Correct, and Incorrect answers exported
+# to a file
 
 from tkinter import *
 import random
@@ -241,9 +237,9 @@ def test_answer(quiz_difficulty, mark, user_answer, correct_answer, track,
         for month in questions:
             if correct_answer == month.eng_month or correct_answer == \
                     month.maori_month:
-                incorrect_questions.append([[month.eng_month],
-                                           [month.maori_month],
-                                            [user_answer], track+1])
+                incorrect_questions.append([month.eng_month,
+                                           month.maori_month,
+                                            user_answer, track+1])
                 print("INCORRECT QUESTIONS:")  # for testing purposes
                 print(incorrect_questions)  # for testing purposes
 
@@ -273,6 +269,21 @@ def next_question(quiz, questions_track, answer_input, question):
 def finish_quiz():
     easy_button.destroy()
     hard_button.destroy()
+
+    incorrect = Label(root, bg="white", fg="red",
+                      text="MONTHS TO IMPROVE:", font=("Arial", 20))
+    incorrect.grid(column=1, row=8, sticky=N, pady=10)
+
+    placement = 9
+    for question in incorrect_questions:
+        improve = Label(root, bg="white", fg="red",
+                        text=f"Question {question[3]}: {question[0]} ="
+                             f" {question[1]}",
+                        font=("Arial", 16))
+        improve.grid(column=1, row=placement, sticky=N, pady=3)
+        placement += 1
+
+
 
 
 questions = []
