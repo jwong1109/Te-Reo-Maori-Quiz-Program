@@ -1,0 +1,29 @@
+Final SCORE for your HARD Quiz: 0/12
+
+Questions answered correctly: 
+
+Questions answered incorrectly: 
+Q1: July in Maori? 
+  Your incorrect answer: Hui-tanguru. The CORRECT answer: HŌNGONGOI
+Q2: August in Maori? 
+  Your incorrect answer: Hui-tanguru. The CORRECT answer: HERE-TURI-KŌKĀ
+Q3: March in Maori? 
+  Your incorrect answer: Here-turi-kōkā. The CORRECT answer: POUTŪ-TE-RANGI
+Q4: February in Maori? 
+  Your incorrect answer: Paenga-whāwhā. The CORRECT answer: HUI-TANGURU
+Q5: December in Maori? 
+  Your incorrect answer: Here-turi-kōkā. The CORRECT answer: HAKIHEA
+Q6: April in Maori? 
+  Your incorrect answer: Whiringa-ā-nuku. The CORRECT answer: PAENGA-WHĀWHĀ
+Q7: January in Maori? 
+  Your incorrect answer: Paenga-whāwhā. The CORRECT answer: KOHI-TĀTEA
+Q8: May in Maori? 
+  Your incorrect answer: Mahuru. The CORRECT answer: HARATUA
+Q9: November in Maori? 
+  Your incorrect answer: Kohi-tātea. The CORRECT answer: WHIRINGA-Ā-RANGI
+Q10: October in Maori? 
+  Your incorrect answer: Whiringa-ā-rangi. The CORRECT answer: WHIRINGA-Ā-NUKU
+Q11: June in Maori? 
+  Your incorrect answer: Here-turi-kōkā. The CORRECT answer: PIPIRI
+Q12: September in Maori? 
+  Your incorrect answer: Haratua. The CORRECT answer: MAHURU

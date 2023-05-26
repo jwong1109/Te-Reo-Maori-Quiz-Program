@@ -1,8 +1,14 @@
-# Export Score, Record of Questions, Correctly and Incorrectly answered
-# questions exported to a file
+# Further Develop Exporting the File: The text file to also show the
+# specific question asked, the user's incorrectly selected answer,
+# then correct answer
+
+# Automatically open the text file when quiz is completed
 
 from tkinter import *
 import random
+import subprocess
+import os
+import platform
 
 # Root Window - from 01_setup_interface_v4.py
 root = Tk()
@@ -263,10 +269,10 @@ def next_question(quiz, questions_track, answer_input, question):
             hard_ask(questions_track)
 
     if questions_track == 12:
-        finish_quiz()
+        finish_quiz(quiz)
 
 
-def finish_quiz():
+def finish_quiz(quiz_level):
     easy_button.destroy()
     hard_button.destroy()
 
@@ -283,24 +289,42 @@ def finish_quiz():
         improve.grid(column=1, row=placement, sticky=N, pady=3)
         placement += 1
 
-    export_file()
+    export_file(quiz_level)
 
 
-def export_file():
+def export_file(quiz_type):
     list_correct = []
     list_incorrect = []
     for question in correct_questions:
-        record_question = f"Question {question[3]}: {question[0]} =" \
-                          f" {question[1]}"
-        list_correct.append(record_question)
+        if question[4] == "Easy":
+            record_question = f"Q{question[3]}: {question[1]} in " \
+                              f"English? (You selected the CORRECT " \
+                              f"answer: " \
+                              f"{question[0].upper()})"
+            list_correct.append(record_question)
+        else:
+            record_question = f"Q{question[3]}: {question[0]} in " \
+                              f"Maori? (You selected the CORRECT answer: " \
+                              f"{question[1].upper()})"
+            list_correct.append(record_question)
 
     for question in incorrect_questions:
-        record_question = f"Question {question[3]}: {question[0]} =" \
-                          f" {question[1]}"
-        list_incorrect.append(record_question)
+        if question[4] == "Easy":
+            record_question = f"Q{question[3]}: {question[1]} in " \
+                              f"English? \n  Your incorrect answer: " \
+                              f"{question[2]}. The CORRECT answer: " \
+                              f"{question[0].upper()}."
+            list_incorrect.append(record_question)
+        else:
+            record_question = f"Q{question[3]}: {question[0]} in " \
+                              f"Maori? \n  Your incorrect answer: " \
+                              f"{question[2]}. The CORRECT answer: " \
+                              f"{question[1].upper()}"
+            list_incorrect.append(record_question)
 
     record_file = open("Questions_Record.txt", 'w')
-    record_file.write(f"Final SCORE for your {correct_questions[0][4].upper()} "
+    record_file.write(f"Final SCORE for your "
+                      f"{quiz_type.upper()} "
                       f"Quiz:"
                       f" {len(correct_questions)}/12\n\n"
                       f"Questions answered correctly: \n")
@@ -318,6 +342,15 @@ def export_file():
         record_file = open("Questions_Record.txt", 'a')
         record_file.write(f"{record}\n")
         record_file.close()
+
+    directory = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(directory, 'Questions_Record.txt')
+
+    computer_system = platform.system()
+    if computer_system == 'Windows':
+        os.startfile(file_path)
+    else:
+        subprocess.call(['open', file_path])
 
 
 questions = []
