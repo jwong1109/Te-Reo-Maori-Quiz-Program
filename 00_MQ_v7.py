@@ -1,5 +1,10 @@
 # Added 06_finish_quiz_v5.py
 
+# Instructions Label and white line to disappear when easy or hard button is
+# pressed
+
+# Months to improve label won't appear if user got perfect score
+
 # Import Statements
 from tkinter import *
 import random
@@ -277,19 +282,20 @@ def finish_quiz(quiz_level, track_question_num):
     improve_questions = []
     track_question_num = 0
 
-    incorrect = Label(root, bg="white", fg="red",
-                      text="MONTHS TO IMPROVE:", font=("Arial", 20))
-    incorrect.grid(column=1, row=8, sticky=N, pady=10)
+    if len(incorrect_questions) > 0:
+        incorrect = Label(root, bg="white", fg="red",
+                          text="MONTHS TO IMPROVE:", font=("Arial", 20))
+        incorrect.grid(column=1, row=8, sticky=N, pady=10)
 
-    placement = 9
-    for question in incorrect_questions:
-        improve = Label(root, bg="white", fg="red",
-                        text=f"Question {question[3]}: {question[0]} ="
-                             f" {question[1]}",
-                        font=("Arial", 16))
-        improve.grid(column=1, row=placement, sticky=N, pady=3)
-        placement += 1
-        improve_questions.append(improve)
+        placement = 9
+        for question in incorrect_questions:
+            improve = Label(root, bg="white", fg="red",
+                            text=f"Question {question[3]}: {question[0]} ="
+                                 f" {question[1]}",
+                            font=("Arial", 16))
+            improve.grid(column=1, row=placement, sticky=N, pady=3)
+            placement += 1
+            improve_questions.append(improve)
 
     export_file(quiz_level)
     # Option to Quit the Quiz or Restart the Quiz
@@ -347,22 +353,27 @@ def export_file(quiz_type):
     record_file.write(f"Final SCORE for your "
                       f"{quiz_type.upper()} "
                       f"Quiz:"
-                      f" {len(correct_questions)}/12\n\n"
-                      f"Questions answered correctly: \n")
+                      f" {len(correct_questions)}/12\n\n")
     record_file.close()
-    for record in list_correct:
+    if len(correct_questions) > 0:
         record_file = open("Questions_Record.txt", 'a')
-        record_file.write(f"{record}\n")
+        record_file.write("Questions answered correctly: \n")
         record_file.close()
 
-    record_file = open("Questions_Record.txt", 'a')
-    record_file.write(f"\nQuestions answered incorrectly: \n")
-    record_file.close()
+        for record in list_correct:
+            record_file = open("Questions_Record.txt", 'a')
+            record_file.write(f"{record}\n")
+            record_file.close()
 
-    for record in list_incorrect:
+    if len(incorrect_questions) > 0:
         record_file = open("Questions_Record.txt", 'a')
-        record_file.write(f"{record}\n")
+        record_file.write(f"\nQuestions answered incorrectly: \n")
         record_file.close()
+
+        for record in list_incorrect:
+            record_file = open("Questions_Record.txt", 'a')
+            record_file.write(f"{record}\n")
+            record_file.close()
 
     directory = os.path.dirname(os.path.abspath(__file__))
     file_path = os.path.join(directory, 'Questions_Record.txt')
@@ -383,17 +394,35 @@ def quiz_loop(num_track):
     for detail in questions:
         eng_months_questions.append(detail.eng_month)
 
+    # Instructions on the left
+    instructions_label = Label(root, bg="red", fg="black",
+                               text="Use this 12 questions quiz \n to test "
+                                    "your knowledge of\n "
+                                    "months in the Te Reo\n "
+                                    "Maori language.\n \nYou can select below "
+                                    "an\n easy quiz or a hard quiz.",
+                                    font=("Arial", 20))
+    instructions_label.grid(column=0, row=2, columnspan=2, rowspan=2, ipady=5)
+
+    # White line separating the instructions and the questions
+    white_line = Label(root, bg="white", fg="white", text="a",
+                       font=("Arial", 1))
+    white_line.grid(column=2, row=1, rowspan=5, sticky=NW, ipady=225, pady=30,
+                    padx=5)
+
     # Easy and Hard Buttons - from 02_setup_questions_v4.py
     easy_button = Button(root, bg="red", fg="black", text="EASY",
                          font=("Arial", 20), command=lambda:
                          [easy_ask(num_track), easy_button.destroy(),
-                          hard_button.destroy()])
+                          hard_button.destroy(), instructions_label.destroy(),
+                          white_line.destroy()])
     easy_button.grid(column=0, row=4, sticky=N, ipadx=10, ipady=10, padx=5)
 
     hard_button = Button(root, bg="black", fg="black", text="HARD",
                          font=("Arial", 20), command=lambda:
                          [hard_ask(num_track), easy_button.destroy(),
-                          hard_button.destroy()])
+                          hard_button.destroy(), instructions_label.destroy(),
+                          white_line.destroy()])
     hard_button.grid(column=1, row=4, sticky=N, ipadx=10, ipady=10, padx=5)
 
     # Score Tracker - labels from 01_setup_interface_v4.py
@@ -456,21 +485,6 @@ quiz_loop(num_questions)
 title_label = Label(root, bg="red", fg="black", text="Te Reo Maori Months "
                                                      "Quiz",
                     font=("Arial", 30, "bold"))
-title_label.grid(column=1, columnspan=3, row=0, sticky=N, ipadx=10)
-
-# Instructions on the left
-instructions_label = Label(root, bg="red", fg="black",
-                           text="Use this 12 questions quiz \n to test your "
-                                "knowledge of\n months in the Te Reo\n "
-                                "Maori language.\n \nYou can select below "
-                                "an\n easy quiz or a hard quiz.",
-                           font=("Arial", 20))
-instructions_label.grid(column=0, row=2, columnspan=2, rowspan=2, ipady=5)
-
-# White line separating the instructions and the questions
-white_line = Label(root, bg="white", fg="white", text="a",
-                   font=("Arial", 1))
-white_line.grid(column=2, row=1, rowspan=5, sticky=NW, ipady=225, pady=30,
-                padx=5)
+title_label.grid(column=1, columnspan=4, row=0, sticky=N, ipadx=10)
 
 root.mainloop()
