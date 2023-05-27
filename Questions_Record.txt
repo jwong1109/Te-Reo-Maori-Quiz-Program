@@ -1,22 +1,17 @@
-Final SCORE for your HARD Quiz: 7/12
+Final SCORE for your EASY Quiz: 12/12
 
 Questions answered correctly: 
-Q1: January in Maori? (You selected the CORRECT answer: KOHI-TĀTEA)
-Q2: September in Maori? (You selected the CORRECT answer: MAHURU)
-Q3: October in Maori? (You selected the CORRECT answer: WHIRINGA-Ā-NUKU)
-Q7: June in Maori? (You selected the CORRECT answer: PIPIRI)
-Q8: November in Maori? (You selected the CORRECT answer: WHIRINGA-Ā-RANGI)
-Q9: July in Maori? (You selected the CORRECT answer: HŌNGONGOI)
-Q12: December in Maori? (You selected the CORRECT answer: HAKIHEA)
+Q1: Whiringa-ā-nuku in English? (You selected the CORRECT answer: OCTOBER)
+Q2: Kohi-tātea in English? (You selected the CORRECT answer: JANUARY)
+Q3: Poutū-te-rangi in English? (You selected the CORRECT answer: MARCH)
+Q4: Hakihea in English? (You selected the CORRECT answer: DECEMBER)
+Q5: Here-turi-kōkā in English? (You selected the CORRECT answer: AUGUST)
+Q6: Haratua in English? (You selected the CORRECT answer: MAY)
+Q7: Whiringa-ā-rangi in English? (You selected the CORRECT answer: NOVEMBER)
+Q8: Pipiri in English? (You selected the CORRECT answer: JUNE)
+Q9: Mahuru in English? (You selected the CORRECT answer: SEPTEMBER)
+Q10: Paenga-whāwhā in English? (You selected the CORRECT answer: APRIL)
+Q11: Hui-tanguru in English? (You selected the CORRECT answer: FEBRUARY)
+Q12: Hōngongoi in English? (You selected the CORRECT answer: JULY)
 
 Questions answered incorrectly: 
-Q4: April in Maori? 
-  Your incorrect answer: Whiringa-ā-rangi. The CORRECT answer: PAENGA-WHĀWHĀ
-Q5: August in Maori? 
-  Your incorrect answer: Whiringa-ā-nuku. The CORRECT answer: HERE-TURI-KŌKĀ
-Q6: February in Maori? 
-  Your incorrect answer: Here-turi-kōkā. The CORRECT answer: HUI-TANGURU
-Q10: March in Maori? 
-  Your incorrect answer: Paenga-whāwhā. The CORRECT answer: POUTŪ-TE-RANGI
-Q11: May in Maori? 
-  Your incorrect answer: Poutū-te-rangi. The CORRECT answer: HARATUA
