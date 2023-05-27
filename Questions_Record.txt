@@ -1,17 +1,27 @@
-Final SCORE for your EASY Quiz: 12/12
+Final SCORE for your EASY Quiz: 2/12
 
 Questions answered correctly: 
-Q1: Whiringa-ā-nuku in English? (You selected the CORRECT answer: OCTOBER)
-Q2: Kohi-tātea in English? (You selected the CORRECT answer: JANUARY)
-Q3: Poutū-te-rangi in English? (You selected the CORRECT answer: MARCH)
-Q4: Hakihea in English? (You selected the CORRECT answer: DECEMBER)
-Q5: Here-turi-kōkā in English? (You selected the CORRECT answer: AUGUST)
-Q6: Haratua in English? (You selected the CORRECT answer: MAY)
 Q7: Whiringa-ā-rangi in English? (You selected the CORRECT answer: NOVEMBER)
-Q8: Pipiri in English? (You selected the CORRECT answer: JUNE)
-Q9: Mahuru in English? (You selected the CORRECT answer: SEPTEMBER)
-Q10: Paenga-whāwhā in English? (You selected the CORRECT answer: APRIL)
-Q11: Hui-tanguru in English? (You selected the CORRECT answer: FEBRUARY)
-Q12: Hōngongoi in English? (You selected the CORRECT answer: JULY)
+Q11: Mahuru in English? (You selected the CORRECT answer: SEPTEMBER)
 
 Questions answered incorrectly: 
+Q1: Poutū-te-rangi in English? 
+  Your incorrect answer: July. The CORRECT answer: MARCH.
+Q2: Kohi-tātea in English? 
+  Your incorrect answer: July. The CORRECT answer: JANUARY.
+Q3: Haratua in English? 
+  Your incorrect answer: November. The CORRECT answer: MAY.
+Q4: Whiringa-ā-nuku in English? 
+  Your incorrect answer: August. The CORRECT answer: OCTOBER.
+Q5: Hakihea in English? 
+  Your incorrect answer: January. The CORRECT answer: DECEMBER.
+Q6: Paenga-whāwhā in English? 
+  Your incorrect answer: January. The CORRECT answer: APRIL.
+Q8: Pipiri in English? 
+  Your incorrect answer: August. The CORRECT answer: JUNE.
+Q9: Here-turi-kōkā in English? 
+  Your incorrect answer: October. The CORRECT answer: AUGUST.
+Q10: Hui-tanguru in English? 
+  Your incorrect answer: March. The CORRECT answer: FEBRUARY.
+Q12: Hōngongoi in English? 
+  Your incorrect answer: June. The CORRECT answer: JULY.
