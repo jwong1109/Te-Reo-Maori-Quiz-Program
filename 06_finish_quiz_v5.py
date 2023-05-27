@@ -1,4 +1,6 @@
-# TO BE CONTINUED... Given buttons to try the quiz again or quit the quiz
+# Give buttons for the user to try the quiz again or quit the quiz
+
+# Delete the easy/hard button as soon as it's pressed by the user
 
 from tkinter import *
 import random
@@ -265,12 +267,12 @@ def next_question(quiz, questions_track, answer_input, question):
             hard_ask(questions_track)
 
     if questions_track == 12:
-        finish_quiz(quiz)
+        finish_quiz(quiz, questions_track)
 
 
-def finish_quiz(quiz_level):
-    easy_button.destroy()
-    hard_button.destroy()
+def finish_quiz(quiz_level, track_question_num):
+    improve_questions = []
+    track_question_num = 0
 
     incorrect = Label(root, bg="white", fg="red",
                       text="MONTHS TO IMPROVE:", font=("Arial", 20))
@@ -284,8 +286,27 @@ def finish_quiz(quiz_level):
                         font=("Arial", 16))
         improve.grid(column=1, row=placement, sticky=N, pady=3)
         placement += 1
+        improve_questions.append(improve)
 
     export_file(quiz_level)
+    # Option to Quit the Quiz or Restart the Quiz
+    quit_button = Button(root, bg="red", fg="black", text="QUIT the quiz",
+                         font=("Arial", 20), command=lambda: root.destroy())
+    quit_button.grid(column=0, row=4, sticky=N, ipadx=10, ipady=10, padx=5)
+
+    restart_button = Button(root, bg="black", fg="black", text="RESTART the "
+                                                               "quiz",
+                            font=("Arial", 20), command=lambda:
+                            [quit_button.destroy(), restart_button.destroy(),
+                             quiz_loop(track_question_num), num_correct.set(
+                                0), num_incorrect.set(0), incorrect.destroy(),
+                             delete_improve_months(improve_questions)])
+    restart_button.grid(column=1, row=4, sticky=N, ipadx=10, ipady=10, padx=5)
+
+
+def delete_improve_months(improve_questions):
+    for improve in improve_questions:
+        improve.destroy()
 
 
 def export_file(quiz_type):
@@ -348,14 +369,52 @@ def export_file(quiz_type):
     else:
         subprocess.call(['open', file_path])
 
+    return
+
+
+def quiz_loop(num_track):
+    incorrect_questions.clear()
+    correct_questions.clear()
+
+    for detail in questions:
+        eng_months_questions.append(detail.eng_month)
+
+    # Easy and Hard Buttons - from 02_setup_questions_v4.py
+    easy_button = Button(root, bg="red", fg="black", text="EASY",
+                         font=("Arial", 20), command=lambda:
+                         [easy_ask(num_track), easy_button.destroy(),
+                          hard_button.destroy()])
+    easy_button.grid(column=0, row=4, sticky=N, ipadx=10, ipady=10, padx=5)
+
+    hard_button = Button(root, bg="black", fg="black", text="HARD",
+                         font=("Arial", 20), command=lambda:
+                         [hard_ask(num_track), easy_button.destroy(),
+                          hard_button.destroy()])
+    hard_button.grid(column=1, row=4, sticky=N, ipadx=10, ipady=10, padx=5)
+
+    # Score Tracker - labels from 01_setup_interface_v4.py
+    score_tracker = Label(root, bg="#FF7200", fg="white", text="Score Tracker",
+                          font=("Arial", 20))
+    score_tracker.grid(column=0, row=6, columnspan=2, sticky=N, pady=5)
+
+    correct_label = Label(root, bg="#FF7200", fg="light green", text="Correct",
+                          font=("Arial", 20))
+    correct_label.grid(column=0, row=7, sticky=N)
+
+    correct_num = Label(root, bg="#FF7200", fg="light green",
+                        textvariable=num_correct, font=("Arial", 20))
+    correct_num.grid(column=1, row=7, sticky=N)
+
+    incorrect_label = Label(root, bg="white", fg="red", text="Incorrect",
+                            font=("Arial", 20))
+    incorrect_label.grid(column=2, row=7, sticky=N)
+
+    incorrect_num = Label(root, bg="white", fg="red",
+                          textvariable=num_incorrect, font=("Arial", 20))
+    incorrect_num.grid(column=3, row=7, sticky=N)
+
 
 questions = []
-incorrect_questions = []
-correct_questions = []
-print(incorrect_questions)
-print(correct_questions)
-num_questions = 0
-eng_months_questions = []
 
 Questions("January", "Kohi-tātea", 1)
 Questions("February", "Hui-tanguru", 2)
@@ -370,45 +429,19 @@ Questions("October", "Whiringa-ā-nuku", 10)
 Questions("November", "Whiringa-ā-rangi", 11)
 Questions("December", "Hakihea", 12)
 
-for detail in questions:
-    eng_months_questions.append(detail.eng_month)
-
-# Easy and Hard Buttons - from 02_setup_questions_v4.py
-easy_button = Button(root, bg="red", fg="black", text="EASY",
-                     font=("Arial", 20), command=lambda:
-                     easy_ask(num_questions))
-easy_button.grid(column=0, row=4, sticky=N, ipadx=10, ipady=10, padx=5)
-
-hard_button = Button(root, bg="black", fg="black", text="HARD",
-                     font=("Arial", 20), command=lambda:
-                     hard_ask(num_questions))
-hard_button.grid(column=1, row=4, sticky=N, ipadx=10, ipady=10, padx=5)
-
-# Score Tracker - labels from 01_setup_interface_v4.py
-score_tracker = Label(root, bg="#FF7200", fg="white", text="Score Tracker",
-                      font=("Arial", 20))
-score_tracker.grid(column=0, row=6, columnspan=2, sticky=N, pady=5)
+incorrect_questions = []
+correct_questions = []
+print(incorrect_questions)
+print(correct_questions)
+num_questions = 0
+eng_months_questions = []
 
 num_correct = IntVar()
 num_correct.set(0)
 
-correct_label = Label(root, bg="#FF7200", fg="light green", text="Correct",
-                      font=("Arial", 20))
-correct_label.grid(column=0, row=7, sticky=N)
-
-correct_num = Label(root, bg="#FF7200", fg="light green",
-                    textvariable=num_correct, font=("Arial", 20))
-correct_num.grid(column=1, row=7, sticky=N)
-
 num_incorrect = IntVar()
 num_incorrect.set(0)
 
-incorrect_label = Label(root, bg="white", fg="red", text="Incorrect",
-                        font=("Arial", 20))
-incorrect_label.grid(column=2, row=7, sticky=N)
-
-incorrect_num = Label(root, bg="white", fg="red",
-                      textvariable=num_incorrect, font=("Arial", 20))
-incorrect_num.grid(column=3, row=7, sticky=N)
+quiz_loop(num_questions)
 
 root.mainloop()
