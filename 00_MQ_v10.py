@@ -137,7 +137,8 @@ def ask(track_questions, level):
         ask_question = f"What is the month\n '{ask_details[0][1]}' in English?"
     else:  # if this is a hard quiz
         # format the question to ask for the English month in Maori
-        ask_question = f"What is the month\n '{ask_details[0][0]}' in Te Reo " \
+        ask_question = f"What is the month\n '{ask_details[0][0]}' " \
+                       f"in Te Reo " \
                    f"Maori?"
     # Create the question label to display in the GUI with its question text
     # based on the above question format
@@ -169,50 +170,50 @@ def get_answer(difficulty, correct, random1, random2, random3,
                                 text=correct_month,
                                 font=("Arial", 17), command=lambda:
                                 [test_answer(difficulty, "Correct",
-                                            correct_month,
-                                            correct_month,
-                                            questions_track,
-                                            [correct_choice,
-                                             incorrect_choice_1,
-                                             incorrect_choice_2,
-                                             incorrect_choice_3],
+                                             correct_month,
+                                             correct_month,
+                                             questions_track,
+                                             [correct_choice,
+                                              incorrect_choice_1,
+                                              incorrect_choice_2,
+                                              incorrect_choice_3],
                                              question_label),
                                  main_menu.destroy()])
         incorrect_choice_1 = Button(root, bg="red", fg="black", text=random1,
                                     font=("Arial", 17), command=lambda:
                                     [test_answer(difficulty, "Incorrect",
-                                                random1,
-                                                correct_month,
-                                                questions_track,
-                                                [correct_choice,
-                                                 incorrect_choice_1,
-                                                 incorrect_choice_2,
-                                                 incorrect_choice_3],
-                                                question_label),
+                                                 random1,
+                                                 correct_month,
+                                                 questions_track,
+                                                 [correct_choice,
+                                                  incorrect_choice_1,
+                                                  incorrect_choice_2,
+                                                  incorrect_choice_3],
+                                                 question_label),
                                      main_menu.destroy()])
         incorrect_choice_2 = Button(root, bg="red", fg="black", text=random2,
                                     font=("Arial", 17), command=lambda:
                                     [test_answer(difficulty, "Incorrect",
-                                                random2,
-                                                correct_month,
-                                                questions_track,
-                                                [correct_choice,
-                                                 incorrect_choice_1,
-                                                 incorrect_choice_2,
-                                                 incorrect_choice_3],
-                                                question_label),
+                                                 random2,
+                                                 correct_month,
+                                                 questions_track,
+                                                 [correct_choice,
+                                                  incorrect_choice_1,
+                                                  incorrect_choice_2,
+                                                  incorrect_choice_3],
+                                                 question_label),
                                      main_menu.destroy()])
         incorrect_choice_3 = Button(root, bg="red", fg="black", text=random3,
                                     font=("Arial", 17), command=lambda:
                                     [test_answer(difficulty, "Incorrect",
-                                                random3,
-                                                correct_month,
-                                                questions_track,
-                                                [correct_choice,
-                                                 incorrect_choice_1,
-                                                 incorrect_choice_2,
-                                                 incorrect_choice_3],
-                                                question_label),
+                                                 random3,
+                                                 correct_month,
+                                                 questions_track,
+                                                 [correct_choice,
+                                                  incorrect_choice_1,
+                                                  incorrect_choice_2,
+                                                  incorrect_choice_3],
+                                                 question_label),
                                      main_menu.destroy()])
         # if the correct_month position is generated with the integer 1
         if place_correct_month == 1:
@@ -240,7 +241,7 @@ def get_answer(difficulty, correct, random1, random2, random3,
                                     ipady=30, pady=5)
         # if the correct_month position is generated with the integer 3
         elif place_correct_month == 3:
-            # place the correct month in the botton-left multiple choice and
+            # place the correct month in the bottom-left multiple choice and
             # the rest of the incorrect options in the other multiple choice
             # buttons
             correct_choice.grid(column=3, row=3, ipadx=10, sticky=W,
@@ -253,7 +254,7 @@ def get_answer(difficulty, correct, random1, random2, random3,
                                     ipady=30, pady=5)
         # if the correct_month position is generated with the integer 4
         elif place_correct_month == 4:
-            # place the correct month in the botton-right multiple choice and
+            # place the correct month in the bottom-right multiple choice and
             # the rest of the incorrect options in the other multiple choice
             # buttons
             correct_choice.grid(column=4, row=3, ipadx=10, sticky=W,
@@ -272,8 +273,10 @@ def get_answer(difficulty, correct, random1, random2, random3,
         main_menu = Button(root, bg="black", fg="black", text="Main Menu",
                            font=("Arial", 20), command=lambda: [
                             question_label.destroy(), correct_choice.destroy(),
-                            incorrect_choice_1.destroy(), incorrect_choice_2.destroy(),
-                            incorrect_choice_3.destroy(), quiz_loop(questions_track),
+                            incorrect_choice_1.destroy(),
+                            incorrect_choice_2.destroy(),
+                            incorrect_choice_3.destroy(),
+                            quiz_loop(questions_track),
                             main_menu.destroy()])
         main_menu.grid(column=1, row=4, sticky=N, ipadx=10, ipady=10, padx=5)
 
@@ -384,7 +387,8 @@ def test_answer(quiz_difficulty, mark, user_answer, correct_answer, track,
                 # correct questions list
                 correct_questions.append([month.eng_month,
                                           month.maori_month,
-                                          user_answer, track+1, quiz_difficulty])
+                                          user_answer, track+1,
+                                          quiz_difficulty])
     else:  # if the mark status of the answer is incorrect
         # create an incorrect feedback label with red colour font and black
         # colour background
@@ -506,7 +510,8 @@ def finish_quiz(quiz_level, track_question_num):
                                                                "quiz",
                             font=("Arial", 20), command=lambda:
                             [quit_button.destroy(), restart_button.destroy(),
-                             quiz_loop(track_question_num), incorrect.destroy(),
+                             quiz_loop(track_question_num),
+                             incorrect.destroy(),
                              delete_improve_months(improve_questions),
                              overall_feedback.destroy()])
     restart_button.grid(column=1, row=4, sticky=N, ipadx=10, ipady=10, padx=5)
@@ -595,7 +600,7 @@ def export_file(quiz_type):
     # path, which links the directory to the questions record text file
 
     computer_system = platform.system()  # computer system for determining
-    # platform sysstem
+    # platform system
     if computer_system == 'Windows':  # if computer system used is windows
         os.startfile(file_path)  # open the file automatically by
         # interacting with the operating system
@@ -640,7 +645,8 @@ def quiz_loop(num_track):  # The Quiz main loop
     # called with the question tracker.
     learn_button = Button(root, bg="red", fg="black", text="LEARN",
                           font=("Arial", 20),
-                          command=lambda: [learn(num_track), easy_button.destroy(),
+                          command=lambda: [learn(num_track),
+                                           easy_button.destroy(),
                                            hard_button.destroy(),
                                            instructions_label.destroy(),
                                            learn_button.destroy()])
