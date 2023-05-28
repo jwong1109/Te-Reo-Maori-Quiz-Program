@@ -17,7 +17,7 @@ import platform  # to know whether user's computer is Windows or Mac
 # Root Window
 root = Tk()
 root.title("Te Reo Māori Months Quiz")  # Title of the window
-root.geometry("800x800")  # Screen size 800px width, 800px height
+root.geometry("800x850")  # Screen size 800px width, 850px height
 root.configure(bg="#FF7200")  # Background of the colour orange
 
 
