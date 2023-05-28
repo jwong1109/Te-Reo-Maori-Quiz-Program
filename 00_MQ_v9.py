@@ -571,8 +571,7 @@ num_incorrect = IntVar()
 
 quiz_loop(num_questions)
 
-# Labels
-# Comic Book Store Label
+# Title Label
 title_label = Label(root, bg="red", fg="black", text="Te Reo Maori Months "
                                                      "Quiz",
                     font=("Arial", 30, "bold"))
