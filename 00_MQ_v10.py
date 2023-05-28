@@ -5,7 +5,7 @@
 # Removed the white line and changed the positions of the  in the main menu
 # page
 
-# Make the text file close automatically
+# Make the text file window close automatically after each quiz is completed
 
 # Import Statements
 from tkinter import *
@@ -17,7 +17,7 @@ import platform  # to know whether user's computer is Windows or Mac
 # Root Window
 root = Tk()
 root.title("Te Reo Māori Months Quiz")  # Title of the window
-root.geometry("800x850")  # Screen size 800px width, 850px height
+root.geometry("900x900")  # Screen size 900px width, 900px height
 root.configure(bg="#FF7200")  # Background of the colour orange
 
 
@@ -292,7 +292,7 @@ def get_answer(difficulty, correct, random1, random2, random3,
         # Send dropdown menu to 'clicked' button
         # Lists out the options for Maori months
         select_dropdown = OptionMenu(root, clicked, *months_options)
-        select_dropdown.config(bg="red")
+        select_dropdown.config(bg="red", font=10)
         select_dropdown.grid(column=4, row=2, ipadx=10, sticky=W, ipady=10)
         # Call the submit answer function with the quiz_type, question status,
         # user's selected answer, correct month,
