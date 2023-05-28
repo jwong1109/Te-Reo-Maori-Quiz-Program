@@ -139,7 +139,7 @@ def ask(track_questions, level):
         # format the question to ask for the English month in Maori
         ask_question = f"What is the month\n '{ask_details[0][0]}' " \
                        f"in Te Reo " \
-                   f"Maori?"
+                       f"Māori?"
     # Create the question label to display in the GUI with its question text
     # based on the above question format
     question_label = Label(root, bg="#FF7200", fg="black",
@@ -284,7 +284,7 @@ def get_answer(difficulty, correct, random1, random2, random3,
         correct_month = correct[1]  # the second item in the current question
         # details list is the correct Maori month answer
         clicked = StringVar()  # Setting the dropdown to a string variable
-        clicked.set("Select Maori Month...")  # Initial set the dropdown,
+        clicked.set("Select Māori Month...")  # Initial set the dropdown,
         # asking the user to choose a Maori Month
         months_options = months_dropdown()  # list of the Maori months
         # Send dropdown menu to 'clicked' button
@@ -506,8 +506,8 @@ def finish_quiz(quiz_level, track_question_num):
     # delete improve months function is also called to delete the incorrect
     # question labels. The quiz_loop function is called to return to the
     # go to the instructions page and start a new quiz.
-    restart_button = Button(root, bg="red", fg="black", text="RESTART the "
-                                                               "quiz",
+    restart_button = Button(root, bg="red", fg="black",
+                            text="RESTART the quiz",
                             font=("Arial", 20), command=lambda:
                             [quit_button.destroy(), restart_button.destroy(),
                              quiz_loop(track_question_num),
@@ -537,7 +537,7 @@ def export_file(quiz_type):
         else:  # if it's a hard quiz
             # record the hard correct question in this format
             record_question = f"Q{question[3]}: {question[0]} in " \
-                              f"Maori? (You selected the CORRECT answer: " \
+                              f"Māori? (You selected the CORRECT answer: " \
                               f"{question[1].upper()})"
         list_correct.append(record_question)  # add the correct
         # question record to the correct list
@@ -730,7 +730,7 @@ quiz_loop(num_questions)  # first time to call the quiz loop with the number
 # of questions tracker
 
 # Te Reo Maori Months Quiz Title Label in the top centre of the interface
-title_label = Label(root, bg="red", fg="black", text="Te Reo Maori Months "
+title_label = Label(root, bg="red", fg="black", text="Te Reo Māori Months "
                                                      "Quiz",
                     font=("Arial", 30, "bold"))
 title_label.grid(column=1, columnspan=4, row=0, sticky=N, ipadx=10)
