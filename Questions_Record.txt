@@ -1,24 +1,28 @@
-Final SCORE for your EASY Quiz: 5/12
+Final SCORE for your EASY Quiz: 0/12
 
-Questions answered correctly: 
-Q1: Kohi-tātea in English? (You selected the CORRECT answer: JANUARY)
-Q2: Hui-tanguru in English? (You selected the CORRECT answer: FEBRUARY)
-Q3: Haratua in English? (You selected the CORRECT answer: MAY)
-Q9: Paenga-whāwhā in English? (You selected the CORRECT answer: APRIL)
-Q11: Here-turi-kōkā in English? (You selected the CORRECT answer: AUGUST)
 
 Questions answered incorrectly: 
-Q4: Whiringa-ā-rangi in English? 
-  Your incorrect answer: April. The CORRECT answer: NOVEMBER.
+Q1: Kohi-tātea in English? 
+  Your incorrect answer: November. The CORRECT answer: JANUARY.
+Q2: Haratua in English? 
+  Your incorrect answer: February. The CORRECT answer: MAY.
+Q3: Pipiri in English? 
+  Your incorrect answer: May. The CORRECT answer: JUNE.
+Q4: Paenga-whāwhā in English? 
+  Your incorrect answer: March. The CORRECT answer: APRIL.
 Q5: Whiringa-ā-nuku in English? 
-  Your incorrect answer: July. The CORRECT answer: OCTOBER.
-Q6: Poutū-te-rangi in English? 
-  Your incorrect answer: June. The CORRECT answer: MARCH.
-Q7: Pipiri in English? 
-  Your incorrect answer: December. The CORRECT answer: JUNE.
-Q8: Hakihea in English? 
-  Your incorrect answer: January. The CORRECT answer: DECEMBER.
-Q10: Mahuru in English? 
-  Your incorrect answer: January. The CORRECT answer: SEPTEMBER.
-Q12: Hōngongoi in English? 
-  Your incorrect answer: April. The CORRECT answer: JULY.
+  Your incorrect answer: December. The CORRECT answer: OCTOBER.
+Q6: Hōngongoi in English? 
+  Your incorrect answer: August. The CORRECT answer: JULY.
+Q7: Hakihea in English? 
+  Your incorrect answer: September. The CORRECT answer: DECEMBER.
+Q8: Hui-tanguru in English? 
+  Your incorrect answer: November. The CORRECT answer: FEBRUARY.
+Q9: Mahuru in English? 
+  Your incorrect answer: July. The CORRECT answer: SEPTEMBER.
+Q10: Poutū-te-rangi in English? 
+  Your incorrect answer: April. The CORRECT answer: MARCH.
+Q11: Here-turi-kōkā in English? 
+  Your incorrect answer: June. The CORRECT answer: AUGUST.
+Q12: Whiringa-ā-rangi in English? 
+  Your incorrect answer: August. The CORRECT answer: NOVEMBER.

@@ -2,6 +2,9 @@
 
 # Combined easy_ask and hard_ask function into one ask_function
 
+# Removed the white line and changed the positions of the  in the main menu
+# page
+
 # Import Statements
 from tkinter import *
 import random  # to randomly generate questions and random multiple choices
@@ -364,7 +367,7 @@ def test_answer(quiz_difficulty, mark, user_answer, correct_answer, track,
         mark = "Incorrect"  # the mark status is incorrect
 
     if mark == "Correct":  # if the mark status of the answer is correct
-        # create a correct feedback label
+        # create a correct feedback label with green colour font
         feedback = Label(root, bg="#FF7200", fg="light green", text="Correct!",
                          font=("Arial", 20))
         feedback.grid(column=3, row=5, sticky=W)
@@ -376,90 +379,129 @@ def test_answer(quiz_difficulty, mark, user_answer, correct_answer, track,
             # Maori months,
             if correct_answer == month.eng_month or correct_answer == \
                     month.maori_month:
-                # add the correct question details to the correct questions
-                # list
+                # add the correct question details, the user's selected
+                # answer, the question number, and the quiz type to the
+                # correct questions list
                 correct_questions.append([month.eng_month,
                                           month.maori_month,
                                           user_answer, track+1, quiz_difficulty])
-    else:  # if the mark status of the answer
+    else:  # if the mark status of the answer is incorrect
+        # create an incorrect feedback label with red colour font and black
+        # colour background
         feedback = Label(root, bg="black",
                          fg="red", text="Incorrect! \nThe answer was: \n"
                             f"{correct_answer}",
                          font=("Arial", 20))
         feedback.grid(column=3, row=5, sticky=W)
+
+        # Increase the number of incorrect questions by 1 in the GUI interface
         num_incorrect.set(num_incorrect.get() + 1)
 
-        for month in questions:
+        for month in questions:  # for each month in all the questions
+            # if the correct answer matches any of the English months or
+            # Maori months,
             if correct_answer == month.eng_month or correct_answer == \
                     month.maori_month:
+                # add the correct question details, the user's selected
+                # answer, the question number and the quiz type to the
+                # incorrect questions list
                 incorrect_questions.append([month.eng_month,
                                            month.maori_month,
-                                            user_answer, track+1, quiz_difficulty])
+                                            user_answer,
+                                            track+1, quiz_difficulty])
 
-    track += 1
-    feedback.after(3000, feedback.destroy)
+    track += 1  # add 1 to the question track as a question has been completed
 
+    feedback.after(3000, feedback.destroy)  # after 3 seconds, delete the
+    # feedback label
+
+    # call the next question function to move on to the next question with
+    # the quiz type, the question tracker, the type of answer, and the
+    # question label
     next_question(quiz_difficulty, track, type_answer, question_quiz)
 
 
+# Next question function - to move on to the next question
 def next_question(quiz, questions_track, answer_input, question):
-    if quiz == "Easy":
-        question.destroy()
-        for choice in answer_input:
-            choice.destroy()
-    else:
-        question.destroy()
-        answer_input.destroy()
+    question.destroy()  # delete the current question label
+    if quiz == "Easy":  # if the user is doing the easy quiz
+        for choice in answer_input:  # for each button in the multiple
+            # choice buttons list
+            choice.destroy()  # delete multiple choice button
+    else:  # if the user is doing the hard quiz
+        answer_input.destroy()  # delete the dropdown menu
 
-    if questions_track < 12:
-        ask(questions_track, quiz)
-    else:
-        finish_quiz(quiz, questions_track)
+    if questions_track < 12:  # if the user hasn't done 12 questions yet
+        ask(questions_track, quiz)  # ask the next question by calling the
+        # ask function with the question tracker, and the quiz type
+    else:  # if the user has completed 12 questions in the quiz
+        finish_quiz(quiz, questions_track)  # call the finish quiz function
+        # with the quiz type and question tracker
 
 
 # Finish the Quiz function
 def finish_quiz(quiz_level, track_question_num):
-    improve_questions = []
-    track_question_num = 0
+    improve_questions = []  # List to contain all improve question labels
+    track_question_num = 0  # restart question tracker number if user
+    # chooses to restart the quiz
 
-    if len(correct_questions) == 12:
+    if len(correct_questions) == 12:  # if the user got all questions correct
+        # Create an overall feedback label saying perfect score in green
         overall_feedback = Label(root, bg="#FF7200", fg="light green",
                                  text="Excellent! Perfect Score!",
                                  font=("Arial", 20))
         overall_feedback.grid(column=1, row=9, sticky=N, pady=10)
-    elif 12 > len(correct_questions) >= 6:
+    elif 12 > len(correct_questions) >= 6:  # if the user got at least half of
+        # the questions correct (6),
+        # Create an overall feedback label saying you passed in green
         overall_feedback = Label(root, bg="#FF7200", fg="light green",
                                  text="Well Done! You passed!",
                                  font=("Arial", 20))
         overall_feedback.grid(column=1, row=9, sticky=N, pady=10)
-    else:
+    else:  # if the user got less than 6 questions right:
+        # Create an overall feedback label saying you did not pass in red
         overall_feedback = Label(root, bg="black", fg="red",
-                                 text="Oh no! You did not pass.\n Learn your "
-                                      "months below \nto improve next time!",
+                                 text="Oh No! You did not pass. \nLearn your "
+                                      "incorrect "
+                                      "months below\n to improve next time!",
                                  font=("Arial", 20))
-        overall_feedback.grid(column=1, row=9, sticky=N, pady=10)
+        overall_feedback.grid(column=1, row=9, sticky=N,
+                              pady=10)
 
+    # if user had at least one incorrect answer
     if len(incorrect_questions) > 0:
+        # create a label, saying months to improve
         incorrect = Label(root, bg="white", fg="red",
                           text="MONTHS TO IMPROVE:", font=("Arial", 20))
         incorrect.grid(column=1, row=10, sticky=N, pady=10)
 
-        placement = 11
-        for question in incorrect_questions:
+        placement = 11  # first incorrect month label to place in row 11
+        for question in incorrect_questions:  # for each incorrect question,
+            # Create an incorrect month label, showing the question number,
+            # English translation, and Maori translation
             improve = Label(root, bg="white", fg="red",
                             text=f"Question {question[3]}: {question[0]} ="
                                  f" {question[1]}",
                             font=("Arial", 16))
             improve.grid(column=1, row=placement, sticky=N, pady=3)
-            placement += 1
-            improve_questions.append(improve)
+            placement += 1  # the next incorrect month label will be placed
+            # directly in the next row
+            improve_questions.append(improve)  # add all the incorrect month
+            # labels to the improve questions list
 
-    export_file(quiz_level)
-    # Option to Quit the Quiz or Restart the Quiz
+    export_file(quiz_level)  # call the export file function with the quiz type
+    # Optional Button to quit the quiz:
+    # When clicked, the whole GUI interface closes
     quit_button = Button(root, bg="red", fg="black", text="QUIT the quiz",
                          font=("Arial", 20), command=lambda: root.destroy())
     quit_button.grid(column=0, row=4, sticky=N, ipadx=10, ipady=10, padx=5)
 
+    # Optional Button to restart the quiz
+    # When clicked, the quit button, the restart button itself, and the
+    # months to improve label, the overall feedback label are deleted. The
+    # delete improve months function is also called to delete the incorrect
+    # question labels. The quiz_loop function is called to return to the
+    # go to the instructions page and start a new quiz.
     restart_button = Button(root, bg="black", fg="black", text="RESTART the "
                                                                "quiz",
                             font=("Arial", 20), command=lambda:
@@ -470,92 +512,118 @@ def finish_quiz(quiz_level, track_question_num):
     restart_button.grid(column=1, row=4, sticky=N, ipadx=10, ipady=10, padx=5)
 
 
+# Delete Incorrect Question Labels
 def delete_improve_months(improve_questions):
-    for improve in improve_questions:
-        improve.destroy()
+    for improve in improve_questions:  # for each incorrect question label
+        improve.destroy()  # delete incorrect question label
 
 
 # Export record of score, questions, and answers to text file function
 def export_file(quiz_type):
-    list_correct = []
-    list_incorrect = []
-    for question in correct_questions:
-        if question[4] == "Easy":
+    list_correct = []  # A list to store each correct question record
+    list_incorrect = []  # A list to store each incorrect question record
+    for question in correct_questions:  # for each correct question
+        if question[4] == "Easy":  # if it's an easy quiz
+            # record the easy correct question in this format
             record_question = f"Q{question[3]}: {question[1]} in " \
                               f"English? (You selected the CORRECT " \
                               f"answer: " \
                               f"{question[0].upper()})"
-            list_correct.append(record_question)
-        else:
+        else:  # if it's a hard quiz
+            # record the hard correct question in this format
             record_question = f"Q{question[3]}: {question[0]} in " \
                               f"Maori? (You selected the CORRECT answer: " \
                               f"{question[1].upper()})"
-            list_correct.append(record_question)
+        list_correct.append(record_question)  # add the correct
+        # question record to the correct list
 
-    for question in incorrect_questions:
-        if question[4] == "Easy":
+    for question in incorrect_questions:  # for each incorrect question
+        if question[4] == "Easy":  # if it's an easy quiz
+            # record the easy incorrect question in this format
             record_question = f"Q{question[3]}: {question[1]} in " \
                               f"English? \n  Your incorrect answer: " \
                               f"{question[2]}. The CORRECT answer: " \
                               f"{question[0].upper()}."
-            list_incorrect.append(record_question)
-        else:
+        else:  # if it's a hard quiz
+            # record the hard incorrect question in this format
             record_question = f"Q{question[3]}: {question[0]} in " \
                               f"Maori? \n  Your incorrect answer: " \
                               f"{question[2]}. The CORRECT answer: " \
                               f"{question[1].upper()}"
-            list_incorrect.append(record_question)
+        list_incorrect.append(record_question)  # add the incorrect
+        # question record to the correct list
 
-    record_file = open("Questions_Record.txt", 'w')
+    record_file = open("Questions_Record.txt", 'w')  # write a new text file
+    # called Questions Record
+    # Write the text showing final score out of 12 for the particular quiz type
     record_file.write(f"Final SCORE for your "
                       f"{quiz_type.upper()} "
                       f"Quiz:"
                       f" {len(correct_questions)}/12\n\n")
-    record_file.close()
-    if len(correct_questions) > 0:
-        record_file = open("Questions_Record.txt", 'a')
-        record_file.write("Questions answered correctly: \n")
-        record_file.close()
+    record_file.close()  # close the text file
+    if len(correct_questions) > 0:  # if the user has any correct questions
+        record_file = open("Questions_Record.txt", 'a')  # open the text
+        # file in append mode
+        record_file.write("Questions answered correctly: \n")  # write the
+        # text to introduce the correctly answered questions
+        record_file.close()  # close the text file
 
-        for record in list_correct:
-            record_file = open("Questions_Record.txt", 'a')
-            record_file.write(f"{record}\n")
-            record_file.close()
+        for record in list_correct:  # for each correct record
+            record_file = open("Questions_Record.txt", 'a')  # open the text
+        # file in append mode
+            record_file.write(f"{record}\n")  # add each correct record to
+            # the text file
+            record_file.close()  # close the text file
 
-    if len(incorrect_questions) > 0:
-        record_file = open("Questions_Record.txt", 'a')
-        record_file.write(f"\nQuestions answered incorrectly: \n")
-        record_file.close()
+    if len(incorrect_questions) > 0:  # if the user has any incorrect questions
+        record_file = open("Questions_Record.txt", 'a')  # open the text
+        # file in append mode
+        record_file.write(f"\nQuestions answered incorrectly: \n")  # write the
+        # text to introduce the incorrectly answered questions
+        record_file.close()  # close the text file
 
-        for record in list_incorrect:
-            record_file = open("Questions_Record.txt", 'a')
-            record_file.write(f"{record}\n")
-            record_file.close()
+        for record in list_incorrect:  # for each incorrect record
+            record_file = open("Questions_Record.txt", 'a')  # open the text
+        # file in append mode
+            record_file.write(f"{record}\n")  # add each incorrect record to
+            # the text file
+            record_file.close()  # close the text file
 
-    directory = os.path.dirname(os.path.abspath(__file__))
-    file_path = os.path.join(directory, 'Questions_Record.txt')
+    directory = os.path.dirname(os.path.abspath(__file__))  # make the
+    # directory of the text file, where the current python script is stored
+    file_path = os.path.join(directory, 'Questions_Record.txt')  # the file
+    # path, which links the directory to the questions record text file
 
-    computer_system = platform.system()
-    if computer_system == 'Windows':
-        os.startfile(file_path)
-    else:
-        subprocess.call(['open', file_path])
+    computer_system = platform.system()  # computer system for determining
+    # platform sysstem
+    if computer_system == 'Windows':  # if computer system used is windows
+        os.startfile(file_path)  # open the file automatically by
+        # interacting with the operating system
+    else:  # if computer system is another system such as mac
+        subprocess.call(['open', file_path])  # open the file automatically
+        # by working with external processes
 
-    return
+    return  # return to the finish quiz function
 
 
-def quiz_loop(num_track):
-    num_track = 0
-    num_correct.set(0)
-    num_incorrect.set(0)
-    incorrect_questions.clear()
-    correct_questions.clear()
-    eng_months_questions.clear()
+def quiz_loop(num_track):  # The Quiz main loop
+    num_track = 0  # set the question tracker to 0
+    num_correct.set(0)  # set the number of correct questions to 0, displayed
+    # in the GUI interface
+    num_incorrect.set(0)  # set the number of incorrect questions to 0,
+    # displayed in the GUI interface
+    incorrect_questions.clear()  # clear the incorrect questions list
+    correct_questions.clear()  # clear the correct questions list
+    eng_months_questions.clear()  # clear the english months questions list
 
-    for detail in questions:
-        eng_months_questions.append(detail.eng_month)
+    for detail in questions:  # for each question detail, such as english month
+        eng_months_questions.append(detail.eng_month)  # add all english
+        # months to the english months questions list. Later used for
+        # randomly generating a random question.
 
     # Instructions on the left
+    # Create an instructions label explaining the purpose of this
+    # Te Reo Months quiz
     instructions_label = Label(root, bg="red", fg="black",
                                text="Use this 12 questions quiz \n to test "
                                     "your knowledge of\n "
@@ -564,50 +632,49 @@ def quiz_loop(num_track):
                                     "first\n or select below "
                                     "an\n easy quiz or a hard quiz.",
                                     font=("Arial", 20))
-    instructions_label.grid(column=0, row=1, columnspan=2, rowspan=3,
+    instructions_label.grid(column=1, row=1, columnspan=2, rowspan=3,
                             ipady=5, padx=30, pady=30)
 
-    # White line separating the instructions and the questions
-    white_line = Label(root, bg="white", fg="white", text="a",
-                       font=("Arial", 1))
-    white_line.grid(column=2, row=1, rowspan=5, sticky=NW, ipady=225, pady=30,
-                    padx=5)
-
-    # Learn button
+    # Learn button: When clicked: the easy button, hard button, instructions
+    # label and the learn button itself are deleted. The learn function is
+    # called with the question tracker.
     learn_button = Button(root, bg="red", fg="black", text="LEARN",
                           font=("Arial", 20),
                           command=lambda: [learn(num_track), easy_button.destroy(),
                                            hard_button.destroy(),
                                            instructions_label.destroy(),
-                                           white_line.destroy(),
                                            learn_button.destroy()])
-    learn_button.grid(column=0, row=4, columnspan=2, ipadx=10, ipady=10)
+    learn_button.grid(column=1, row=4, columnspan=2, ipadx=10, ipady=10)
 
-    # Easy and Hard Buttons - from 02_setup_questions_v4.py
+    # Easy and Hard Buttons: When either are clicked: the easy button,
+    # hard button, instructions label and the learn button are deleted. The
+    # ask function is called with the question tracker and quiz type (easy
+    # or hard)
     easy_button = Button(root, bg="red", fg="black", text="EASY",
                          font=("Arial", 20), command=lambda:
                          [ask(num_track, "Easy"), easy_button.destroy(),
                           hard_button.destroy(), instructions_label.destroy(),
-                          white_line.destroy(), learn_button.destroy()])
-    easy_button.grid(column=0, row=5, sticky=N, ipadx=10, ipady=10, padx=30,
+                          learn_button.destroy()])
+    easy_button.grid(column=1, row=5, sticky=N, ipadx=10, ipady=10, padx=30,
                      pady=30)
 
     hard_button = Button(root, bg="black", fg="black", text="HARD",
                          font=("Arial", 20), command=lambda:
                          [ask(num_track, "Hard"), easy_button.destroy(),
                           hard_button.destroy(), instructions_label.destroy(),
-                          white_line.destroy(), learn_button.destroy()])
-    hard_button.grid(column=1, row=5, sticky=N, ipadx=10, ipady=10, padx=30,
+                          learn_button.destroy()])
+    hard_button.grid(column=2, row=5, sticky=N, ipadx=10, ipady=10, padx=30,
                      pady=30)
 
-    # Score Tracker - labels from 01_setup_interface_v4.py
+    # Score Tracker - tracks the score. After each question, 1 point is
+    # added either to correct or incorrect.
     score_tracker = Label(root, bg="#FF7200", fg="white", text="Score Tracker",
                           font=("Arial", 20))
-    score_tracker.grid(column=0, row=7, columnspan=2, sticky=N, pady=5)
+    score_tracker.grid(column=1, row=7, columnspan=2, sticky=N, pady=5)
 
     correct_label = Label(root, bg="#FF7200", fg="light green", text="Correct",
                           font=("Arial", 20))
-    correct_label.grid(column=0, row=8, sticky=N)
+    correct_label.grid(column=0, row=8, sticky=NW)
 
     correct_num = Label(root, bg="#FF7200", fg="light green",
                         textvariable=num_correct, font=("Arial", 20))
@@ -615,7 +682,7 @@ def quiz_loop(num_track):
 
     incorrect_label = Label(root, bg="white", fg="red", text="Incorrect",
                             font=("Arial", 20))
-    incorrect_label.grid(column=2, row=8, sticky=N)
+    incorrect_label.grid(column=2, row=8, sticky=NW)
 
     incorrect_num = Label(root, bg="white", fg="red",
                           textvariable=num_incorrect, font=("Arial", 20))
@@ -624,7 +691,7 @@ def quiz_loop(num_track):
 
 # ******** Main Routine ********
 
-# Necessary Lists and Variables
+# Questions List
 questions = []
 
 # Add Questions to Class
@@ -641,19 +708,22 @@ Questions("October", "Whiringa-ā-nuku", 10)
 Questions("November", "Whiringa-ā-rangi", 11)
 Questions("December", "Hakihea", 12)
 
+# Necessary Lists and Variables
 num_questions = 0
 eng_months_questions = []
 incorrect_questions = []
 correct_questions = []
 
-num_correct = IntVar()
+num_correct = IntVar()  # Make the number of correct answers an integer
+# variable
 
-num_incorrect = IntVar()
+num_incorrect = IntVar()  # Make the number of incorrect answers an integer
+# variable
 
-quiz_loop(num_questions)
+quiz_loop(num_questions)  # first time to call the quiz loop with the number
+# of questions tracker
 
-# Labels
-# Comic Book Store Label
+# Te Reo Maori Months Quiz Title Label in the top centre of the interface
 title_label = Label(root, bg="red", fg="black", text="Te Reo Maori Months "
                                                      "Quiz",
                     font=("Arial", 30, "bold"))
