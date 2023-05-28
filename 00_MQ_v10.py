@@ -510,7 +510,9 @@ def finish_quiz(quiz_level, track_question_num):
     # months to improve label, the overall feedback label are deleted. The
     # delete improve months function is also called to delete the incorrect
     # question labels. The quiz_loop function is called to return to the
-    # go to the instructions page and start a new quiz.
+    # go to the instructions page and start a new quiz. The close text
+    # file function is also called to close the text file window so a new text
+    # file can be opened when another quiz is completed
     restart_button = Button(root, bg="red", fg="black",
                             text="RESTART the quiz",
                             font=("Arial", 20), command=lambda:
@@ -518,7 +520,7 @@ def finish_quiz(quiz_level, track_question_num):
                              quiz_loop(track_question_num),
                              incorrect.destroy(),
                              delete_improve_months(improve_questions),
-                             overall_feedback.destroy(), close_text_file()])
+                             overall_feedback.destroy(), close_text_window()])
     restart_button.grid(column=1, row=4, sticky=N, ipadx=10, ipady=10, padx=5)
 
 
@@ -616,8 +618,8 @@ def export_file(quiz_type):
     return  # return to the finish quiz function
 
 
-# Close text File automatically when restart button is pressed
-def close_text_file():
+# Close text file window automatically when restart button is pressed
+def close_text_window():
     computer_system = platform.system()  # computer system for determining
     # platform system
     if computer_system == 'Windows':  # if computer system used is windows
