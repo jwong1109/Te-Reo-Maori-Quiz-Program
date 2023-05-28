@@ -47,7 +47,7 @@ def learn(num):
     # the delete_learn function called to delete all learn months labels,
     # this main menu button is deleted, and the quiz_loop function is called
     # to return to the instructions page
-    main_menu = Button(root, bg="black", fg="black", text="Main Menu",
+    main_menu = Button(root, bg="red", fg="black", text="Main Menu",
                        font=("Arial", 20), command=lambda:
                        [delete_learn(learn_list), quiz_loop(num),
                         main_menu.destroy()])
@@ -166,7 +166,7 @@ def get_answer(difficulty, correct, random1, random2, random3,
         # quiz_type, grade, user's selected answer, correct month,
         # the question tracker, the multiple choice buttons, and the
         # question label, and the main menu button is deleted
-        correct_choice = Button(root, bg="black", fg="black",
+        correct_choice = Button(root, bg="red", fg="black",
                                 text=correct_month,
                                 font=("Arial", 17), command=lambda:
                                 [test_answer(difficulty, "Correct",
@@ -270,7 +270,7 @@ def get_answer(difficulty, correct, random1, random2, random3,
         # When clicked: delete the question label, all the multiple choice
         # buttons, and the main menu button itself, and the quiz_loop function
         # is called to return to the instructions page
-        main_menu = Button(root, bg="black", fg="black", text="Main Menu",
+        main_menu = Button(root, bg="red", fg="black", text="Main Menu",
                            font=("Arial", 20), command=lambda: [
                             question_label.destroy(), correct_choice.destroy(),
                             incorrect_choice_1.destroy(),
@@ -317,7 +317,7 @@ def submit_answer(level, status, answer_pressed, correct, track,
     # the submit button, and the main
     # menu button itself. The quiz_loop function is called to return to the
     # instructions page
-    main_menu = Button(root, bg="black", fg="black", text="Main Menu",
+    main_menu = Button(root, bg="red", fg="black", text="Main Menu",
                        font=("Arial", 20), command=lambda: [
                             label_question.destroy(),
                             answer_type.destroy(),
@@ -506,7 +506,7 @@ def finish_quiz(quiz_level, track_question_num):
     # delete improve months function is also called to delete the incorrect
     # question labels. The quiz_loop function is called to return to the
     # go to the instructions page and start a new quiz.
-    restart_button = Button(root, bg="black", fg="black", text="RESTART the "
+    restart_button = Button(root, bg="red", fg="black", text="RESTART the "
                                                                "quiz",
                             font=("Arial", 20), command=lambda:
                             [quit_button.destroy(), restart_button.destroy(),
@@ -664,7 +664,7 @@ def quiz_loop(num_track):  # The Quiz main loop
     easy_button.grid(column=1, row=5, sticky=N, ipadx=10, ipady=10, padx=30,
                      pady=30)
 
-    hard_button = Button(root, bg="black", fg="black", text="HARD",
+    hard_button = Button(root, bg="red", fg="black", text="HARD",
                          font=("Arial", 20), command=lambda:
                          [ask(num_track, "Hard"), easy_button.destroy(),
                           hard_button.destroy(), instructions_label.destroy(),
