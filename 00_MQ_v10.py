@@ -16,7 +16,7 @@ import platform  # to know whether user's computer is Windows or Mac
 
 # Root Window
 root = Tk()
-root.title("Te Reo Maori Months Quiz")  # Title of the window
+root.title("Te Reo Māori Months Quiz")  # Title of the window
 root.geometry("800x800")  # Screen size 800px width, 800px height
 root.configure(bg="#FF7200")  # Background of the colour orange
 
@@ -335,11 +335,11 @@ def not_blank(level, status, answer_pressed, correct,
               track, answer_type, label_question):
     # get the Maori month chosen from the dropdown menu
     user_answer = answer_pressed.get()
-    if user_answer == "Select Maori Month...":  # if no Maori month has been
+    if user_answer == "Select Māori Month...":  # if no Maori month has been
         # selected,
         # create an error message label, asking user to select a Maori month
         enter = Label(root, bg="black",
-                      fg="red", text="Pls enter \na Maori month!",
+                      fg="red", text="Pls enter \na Māori month!",
                       font=("Arial", 20))
         enter.grid(column=5, row=5, sticky=W)
         enter.after(3000, enter.destroy)  # after 3 seconds, delete the
@@ -559,7 +559,7 @@ def export_file(quiz_type):
         else:  # if it's a hard quiz
             # record the hard incorrect question in this format
             record_question = f"Q{question[3]}: {question[0]} in " \
-                              f"Maori? \n  Your incorrect answer: " \
+                              f"Māori? \n  Your incorrect answer: " \
                               f"{question[2]}. The CORRECT answer: " \
                               f"{question[1].upper()}"
         list_incorrect.append(record_question)  # add the incorrect
@@ -654,7 +654,7 @@ def quiz_loop(num_track):
                                text="Use this 12 questions quiz \n to test "
                                     "your knowledge of\n "
                                     "months in the Te Reo\n "
-                                    "Maori language.\n \nYou can learn "
+                                    "Māori language.\n \nYou can learn "
                                     "first\n or select below "
                                     "an\n easy quiz or a hard quiz.",
                                     font=("Arial", 20))

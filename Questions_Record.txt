@@ -1,26 +1,28 @@
-Final SCORE for your EASY Quiz: 3/12
+Final SCORE for your HARD Quiz: 0/12
 
-Questions answered correctly: 
-Q4: Hakihea in English? (You selected the CORRECT answer: DECEMBER)
-Q5: Paenga-whāwhā in English? (You selected the CORRECT answer: APRIL)
-Q10: Hui-tanguru in English? (You selected the CORRECT answer: FEBRUARY)
 
 Questions answered incorrectly: 
-Q1: Kohi-tātea in English? 
-  Your incorrect answer: April. The CORRECT answer: JANUARY.
-Q2: Here-turi-kōkā in English? 
-  Your incorrect answer: November. The CORRECT answer: AUGUST.
-Q3: Haratua in English? 
-  Your incorrect answer: June. The CORRECT answer: MAY.
-Q6: Mahuru in English? 
-  Your incorrect answer: May. The CORRECT answer: SEPTEMBER.
-Q7: Pipiri in English? 
-  Your incorrect answer: March. The CORRECT answer: JUNE.
-Q8: Whiringa-ā-nuku in English? 
-  Your incorrect answer: March. The CORRECT answer: OCTOBER.
-Q9: Poutū-te-rangi in English? 
-  Your incorrect answer: November. The CORRECT answer: MARCH.
-Q11: Hōngongoi in English? 
-  Your incorrect answer: December. The CORRECT answer: JULY.
-Q12: Whiringa-ā-rangi in English? 
-  Your incorrect answer: February. The CORRECT answer: NOVEMBER.
+Q1: December in Maori? 
+  Your incorrect answer: Select Māori Month.... The CORRECT answer: HAKIHEA
+Q2: March in Maori? 
+  Your incorrect answer: Select Māori Month.... The CORRECT answer: POUTŪ-TE-RANGI
+Q3: August in Maori? 
+  Your incorrect answer: Select Māori Month.... The CORRECT answer: HERE-TURI-KŌKĀ
+Q4: June in Maori? 
+  Your incorrect answer: Select Māori Month.... The CORRECT answer: PIPIRI
+Q5: September in Maori? 
+  Your incorrect answer: Select Māori Month.... The CORRECT answer: MAHURU
+Q6: February in Maori? 
+  Your incorrect answer: Select Māori Month.... The CORRECT answer: HUI-TANGURU
+Q7: January in Maori? 
+  Your incorrect answer: Select Māori Month.... The CORRECT answer: KOHI-TĀTEA
+Q8: April in Maori? 
+  Your incorrect answer: Select Māori Month.... The CORRECT answer: PAENGA-WHĀWHĀ
+Q9: October in Maori? 
+  Your incorrect answer: Select Māori Month.... The CORRECT answer: WHIRINGA-Ā-NUKU
+Q10: July in Maori? 
+  Your incorrect answer: Select Māori Month.... The CORRECT answer: HŌNGONGOI
+Q11: November in Maori? 
+  Your incorrect answer: Select Māori Month.... The CORRECT answer: WHIRINGA-Ā-RANGI
+Q12: May in Maori? 
+  Your incorrect answer: Select Māori Month.... The CORRECT answer: HARATUA
