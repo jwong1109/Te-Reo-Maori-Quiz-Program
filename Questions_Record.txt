@@ -1,28 +1,28 @@
-Final SCORE for your HARD Quiz: 0/12
+Final SCORE for your EASY Quiz: 0/12
 
 
 Questions answered incorrectly: 
-Q1: December in Maori? 
-  Your incorrect answer: Select Māori Month.... The CORRECT answer: HAKIHEA
-Q2: March in Maori? 
-  Your incorrect answer: Select Māori Month.... The CORRECT answer: POUTŪ-TE-RANGI
-Q3: August in Maori? 
-  Your incorrect answer: Select Māori Month.... The CORRECT answer: HERE-TURI-KŌKĀ
-Q4: June in Maori? 
-  Your incorrect answer: Select Māori Month.... The CORRECT answer: PIPIRI
-Q5: September in Maori? 
-  Your incorrect answer: Select Māori Month.... The CORRECT answer: MAHURU
-Q6: February in Maori? 
-  Your incorrect answer: Select Māori Month.... The CORRECT answer: HUI-TANGURU
-Q7: January in Maori? 
-  Your incorrect answer: Select Māori Month.... The CORRECT answer: KOHI-TĀTEA
-Q8: April in Maori? 
-  Your incorrect answer: Select Māori Month.... The CORRECT answer: PAENGA-WHĀWHĀ
-Q9: October in Maori? 
-  Your incorrect answer: Select Māori Month.... The CORRECT answer: WHIRINGA-Ā-NUKU
-Q10: July in Maori? 
-  Your incorrect answer: Select Māori Month.... The CORRECT answer: HŌNGONGOI
-Q11: November in Maori? 
-  Your incorrect answer: Select Māori Month.... The CORRECT answer: WHIRINGA-Ā-RANGI
-Q12: May in Maori? 
-  Your incorrect answer: Select Māori Month.... The CORRECT answer: HARATUA
+Q1: Hōngongoi in English? 
+  Your incorrect answer: June. The CORRECT answer: JULY.
+Q2: Paenga-whāwhā in English? 
+  Your incorrect answer: May. The CORRECT answer: APRIL.
+Q3: Hui-tanguru in English? 
+  Your incorrect answer: October. The CORRECT answer: FEBRUARY.
+Q4: Pipiri in English? 
+  Your incorrect answer: May. The CORRECT answer: JUNE.
+Q5: Haratua in English? 
+  Your incorrect answer: June. The CORRECT answer: MAY.
+Q6: Mahuru in English? 
+  Your incorrect answer: November. The CORRECT answer: SEPTEMBER.
+Q7: Hakihea in English? 
+  Your incorrect answer: October. The CORRECT answer: DECEMBER.
+Q8: Whiringa-ā-rangi in English? 
+  Your incorrect answer: July. The CORRECT answer: NOVEMBER.
+Q9: Poutū-te-rangi in English? 
+  Your incorrect answer: June. The CORRECT answer: MARCH.
+Q10: Kohi-tātea in English? 
+  Your incorrect answer: October. The CORRECT answer: JANUARY.
+Q11: Here-turi-kōkā in English? 
+  Your incorrect answer: June. The CORRECT answer: AUGUST.
+Q12: Whiringa-ā-nuku in English? 
+  Your incorrect answer: February. The CORRECT answer: OCTOBER.

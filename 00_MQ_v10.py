@@ -294,11 +294,12 @@ def get_answer(difficulty, correct, random1, random2, random3,
         select_dropdown = OptionMenu(root, clicked, *months_options)
         select_dropdown.config(bg="red", font=10)
         select_dropdown.grid(column=4, row=2, ipadx=10, sticky=W, ipady=10)
+        CHECK = "CHECK"
         # Call the submit answer function with the quiz_type, question status,
         # user's selected answer, correct month,
         # the question tracker, the dropdown itself, and the
         # question label
-        submit_answer(difficulty, "CHECK", clicked, correct_month,
+        submit_answer(difficulty, CHECK, clicked, correct_month,
                       questions_track, select_dropdown, question_label)
 
 
@@ -677,17 +678,19 @@ def quiz_loop(num_track):
     # hard button, instructions label and the learn button are deleted. The
     # ask function is called with the question tracker and quiz type (easy
     # or hard)
+    EASY = "Easy"
     easy_button = Button(root, bg="red", fg="black", text="EASY",
                          font=("Arial", 20), command=lambda:
-                         [ask(num_track, "Easy"), easy_button.destroy(),
+                         [ask(num_track, EASY), easy_button.destroy(),
                           hard_button.destroy(), instructions_label.destroy(),
                           learn_button.destroy()])
     easy_button.grid(column=1, row=5, sticky=N, ipadx=10, ipady=10, padx=30,
                      pady=30)
 
+    HARD = "Hard"
     hard_button = Button(root, bg="red", fg="black", text="HARD",
                          font=("Arial", 20), command=lambda:
-                         [ask(num_track, "Hard"), easy_button.destroy(),
+                         [ask(num_track, HARD), easy_button.destroy(),
                           hard_button.destroy(), instructions_label.destroy(),
                           learn_button.destroy()])
     hard_button.grid(column=2, row=5, sticky=N, ipadx=10, ipady=10, padx=30,
