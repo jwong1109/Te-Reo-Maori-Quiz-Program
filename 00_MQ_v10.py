@@ -558,8 +558,8 @@ def export_file(quiz_type):
         list_incorrect.append(record_question)  # add the incorrect
         # question record to the correct list
 
-    record_file = open("Questions_Record.txt", 'w')  # write a new text file
-    # called Questions Record
+    # write a new text file called Questions Record and specify unicoding
+    record_file = open("Questions_Record.txt", 'w', encoding="utf-8")
     # Write the text showing final score out of 12 for the particular quiz type
     record_file.write(f"Final SCORE for your "
                       f"{quiz_type.upper()} "
@@ -567,29 +567,29 @@ def export_file(quiz_type):
                       f" {len(correct_questions)}/12\n\n")
     record_file.close()  # close the text file
     if len(correct_questions) > 0:  # if the user has any correct questions
-        record_file = open("Questions_Record.txt", 'a')  # open the text
-        # file in append mode
+        # open the text file in append mode
+        record_file = open("Questions_Record.txt", 'a', encoding="utf-8")
         record_file.write("Questions answered correctly: \n")  # write the
         # text to introduce the correctly answered questions
         record_file.close()  # close the text file
 
         for record in list_correct:  # for each correct record
-            record_file = open("Questions_Record.txt", 'a')  # open the text
-        # file in append mode
+            # open the text file in append mode
+            record_file = open("Questions_Record.txt", 'a', encoding="utf-8")
             record_file.write(f"{record}\n")  # add each correct record to
             # the text file
             record_file.close()  # close the text file
 
     if len(incorrect_questions) > 0:  # if the user has any incorrect questions
-        record_file = open("Questions_Record.txt", 'a')  # open the text
-        # file in append mode
+        # open the text file in append mode
+        record_file = open("Questions_Record.txt", 'a', encoding="utf-8")
         record_file.write(f"\nQuestions answered incorrectly: \n")  # write the
         # text to introduce the incorrectly answered questions
         record_file.close()  # close the text file
 
         for record in list_incorrect:  # for each incorrect record
-            record_file = open("Questions_Record.txt", 'a')  # open the text
-        # file in append mode
+            # open the text file in append mode
+            record_file = open("Questions_Record.txt", 'a', encoding="utf-8")
             record_file.write(f"{record}\n")  # add each incorrect record to
             # the text file
             record_file.close()  # close the text file
