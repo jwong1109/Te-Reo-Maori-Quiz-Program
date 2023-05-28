@@ -1,27 +1,24 @@
-Final SCORE for your EASY Quiz: 2/12
+Final SCORE for your EASY Quiz: 5/12
 
 Questions answered correctly: 
-Q7: Whiringa-ā-rangi in English? (You selected the CORRECT answer: NOVEMBER)
-Q11: Mahuru in English? (You selected the CORRECT answer: SEPTEMBER)
+Q1: Kohi-tātea in English? (You selected the CORRECT answer: JANUARY)
+Q2: Hui-tanguru in English? (You selected the CORRECT answer: FEBRUARY)
+Q3: Haratua in English? (You selected the CORRECT answer: MAY)
+Q9: Paenga-whāwhā in English? (You selected the CORRECT answer: APRIL)
+Q11: Here-turi-kōkā in English? (You selected the CORRECT answer: AUGUST)
 
 Questions answered incorrectly: 
-Q1: Poutū-te-rangi in English? 
-  Your incorrect answer: July. The CORRECT answer: MARCH.
-Q2: Kohi-tātea in English? 
-  Your incorrect answer: July. The CORRECT answer: JANUARY.
-Q3: Haratua in English? 
-  Your incorrect answer: November. The CORRECT answer: MAY.
-Q4: Whiringa-ā-nuku in English? 
-  Your incorrect answer: August. The CORRECT answer: OCTOBER.
-Q5: Hakihea in English? 
+Q4: Whiringa-ā-rangi in English? 
+  Your incorrect answer: April. The CORRECT answer: NOVEMBER.
+Q5: Whiringa-ā-nuku in English? 
+  Your incorrect answer: July. The CORRECT answer: OCTOBER.
+Q6: Poutū-te-rangi in English? 
+  Your incorrect answer: June. The CORRECT answer: MARCH.
+Q7: Pipiri in English? 
+  Your incorrect answer: December. The CORRECT answer: JUNE.
+Q8: Hakihea in English? 
   Your incorrect answer: January. The CORRECT answer: DECEMBER.
-Q6: Paenga-whāwhā in English? 
-  Your incorrect answer: January. The CORRECT answer: APRIL.
-Q8: Pipiri in English? 
-  Your incorrect answer: August. The CORRECT answer: JUNE.
-Q9: Here-turi-kōkā in English? 
-  Your incorrect answer: October. The CORRECT answer: AUGUST.
-Q10: Hui-tanguru in English? 
-  Your incorrect answer: March. The CORRECT answer: FEBRUARY.
+Q10: Mahuru in English? 
+  Your incorrect answer: January. The CORRECT answer: SEPTEMBER.
 Q12: Hōngongoi in English? 
-  Your incorrect answer: June. The CORRECT answer: JULY.
+  Your incorrect answer: April. The CORRECT answer: JULY.
