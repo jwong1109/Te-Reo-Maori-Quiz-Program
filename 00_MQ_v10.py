@@ -15,7 +15,7 @@ import platform  # to know whether user's computer is Windows or Mac
 # Root Window
 root = Tk()
 root.title("Te Reo Maori Months Quiz")  # Title of the window
-root.geometry("700x700")  # Screen size 700px width, 700px height
+root.geometry("800x800")  # Screen size 800px width, 800px height
 root.configure(bg="#FF7200")  # Background of the colour orange
 
 
@@ -558,7 +558,7 @@ def export_file(quiz_type):
         list_incorrect.append(record_question)  # add the incorrect
         # question record to the correct list
 
-    # write a new text file called Questions Record and specify unicoding
+    # write a new text file called Questions Record and specify unicode
     record_file = open("Questions_Record.txt", 'w', encoding="utf-8")
     # Write the text showing final score out of 12 for the particular quiz type
     record_file.write(f"Final SCORE for your "
