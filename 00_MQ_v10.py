@@ -5,6 +5,8 @@
 # Removed the white line and changed the positions of the  in the main menu
 # page
 
+# Make the text file close automatically
+
 # Import Statements
 from tkinter import *
 import random  # to randomly generate questions and random multiple choices
@@ -455,6 +457,9 @@ def finish_quiz(quiz_level, track_question_num):
                                  text="Excellent! Perfect Score!",
                                  font=("Arial", 20))
         overall_feedback.grid(column=1, row=9, sticky=N, pady=10)
+        incorrect = Label(root, bg="white", fg="red",
+                          text="NO MONTHS TO IMPROVE!!:", font=("Arial", 20))
+        incorrect.grid(column=1, row=10, sticky=N, pady=10)
     elif 12 > len(correct_questions) >= 6:  # if the user got at least half of
         # the questions correct (6),
         # Create an overall feedback label saying you passed in green
@@ -513,7 +518,7 @@ def finish_quiz(quiz_level, track_question_num):
                              quiz_loop(track_question_num),
                              incorrect.destroy(),
                              delete_improve_months(improve_questions),
-                             overall_feedback.destroy()])
+                             overall_feedback.destroy(), close_text_file()])
     restart_button.grid(column=1, row=4, sticky=N, ipadx=10, ipady=10, padx=5)
 
 
@@ -611,7 +616,21 @@ def export_file(quiz_type):
     return  # return to the finish quiz function
 
 
-def quiz_loop(num_track):  # The Quiz main loop
+# Close text File automatically when restart button is pressed
+def close_text_file():
+    computer_system = platform.system()  # computer system for determining
+    # platform system
+    if computer_system == 'Windows':  # if computer system used is windows
+        # close text file notepad window on Windows
+        subprocess.call(['taskkill', '/IM', 'notepad.exe', '/F'])
+    else:  # if computer system is another system such as Mac
+        # close text file TextEdit window on Mac
+        subprocess.call(['osascript', '-e', 'tell application "TextEdit" to '
+                                            'close front window'])
+
+
+# The Quiz Main loop
+def quiz_loop(num_track):
     num_track = 0  # set the question tracker to 0
     num_correct.set(0)  # set the number of correct questions to 0, displayed
     # in the GUI interface
