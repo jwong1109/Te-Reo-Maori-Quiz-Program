@@ -166,7 +166,7 @@ def get_answer(difficulty, correct, random1, random2, random3,
         # quiz_type, grade, user's selected answer, correct month,
         # the question tracker, the multiple choice buttons, and the
         # question label, and the main menu button is deleted
-        correct_choice = Button(root, bg="red", fg="black",
+        correct_choice = Button(root, bg="white", fg="black",
                                 text=correct_month,
                                 font=("Arial", 17), command=lambda:
                                 [test_answer(difficulty, "Correct",
@@ -179,7 +179,7 @@ def get_answer(difficulty, correct, random1, random2, random3,
                                               incorrect_choice_3],
                                              question_label),
                                  main_menu.destroy()])
-        incorrect_choice_1 = Button(root, bg="red", fg="black", text=random1,
+        incorrect_choice_1 = Button(root, bg="white", fg="black", text=random1,
                                     font=("Arial", 17), command=lambda:
                                     [test_answer(difficulty, "Incorrect",
                                                  random1,
@@ -191,7 +191,7 @@ def get_answer(difficulty, correct, random1, random2, random3,
                                                   incorrect_choice_3],
                                                  question_label),
                                      main_menu.destroy()])
-        incorrect_choice_2 = Button(root, bg="red", fg="black", text=random2,
+        incorrect_choice_2 = Button(root, bg="white", fg="black", text=random2,
                                     font=("Arial", 17), command=lambda:
                                     [test_answer(difficulty, "Incorrect",
                                                  random2,
@@ -203,7 +203,7 @@ def get_answer(difficulty, correct, random1, random2, random3,
                                                   incorrect_choice_3],
                                                  question_label),
                                      main_menu.destroy()])
-        incorrect_choice_3 = Button(root, bg="red", fg="black", text=random3,
+        incorrect_choice_3 = Button(root, bg="white", fg="black", text=random3,
                                     font=("Arial", 17), command=lambda:
                                     [test_answer(difficulty, "Incorrect",
                                                  random3,
@@ -305,7 +305,7 @@ def submit_answer(level, status, answer_pressed, correct, track,
                   answer_type, label_question):
     # Create the submit answer button - when clicked, it calls a function to
     # check that the user has selected an option and hasn't left it blank
-    submit_button = Button(root, bg="blue", fg="black", text="Submit",
+    submit_button = Button(root, bg="light blue", fg="black", text="Submit",
                            font=("Arial", 20), command=lambda: [not_blank(
                                  level, status, answer_pressed, correct,
                                  track, answer_type, label_question),
